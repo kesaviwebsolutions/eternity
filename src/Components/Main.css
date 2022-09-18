@@ -1,0 +1,35 @@
+.col{
+    background-color: #191015;
+border-radius: 8px;
+height: auto;
+padding: 16px;
+width: 100%;
+display: flex;
+justify-content: space-around;
+    
+}
+.border-meta {
+    background: linear-gradient(90deg,#ffa133,#ad00ff);
+border: none !important;
+border-radius: 8px;
+padding: 1px;
+}
+.Image1{
+    margin-top: 15px;
+    padding-right: 16px;
+    height: 32px;
+}
+.para1{
+    font-weight: bolder;
+    color: #fff;
+}
+.span1{
+    font-weight: bolder;
+    color: #fff;
+}
+.border-meta1 {
+    background: linear-gradient(90deg,#ffa133,#ad00ff);
+border: none !important;
+border-radius: 8px;
+padding: 1px;
+}
