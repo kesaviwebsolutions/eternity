@@ -22,7 +22,7 @@ export default function Main1() {
               style={{}}
             >
               <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-4 col-6">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                   <img
                     src={Imagelogo}
                     alt=""
@@ -47,7 +47,7 @@ export default function Main1() {
               style={{}}
             >
               <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-4 col-6">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                   <img
                     src={Imagelogo1}
                     alt=""
@@ -70,7 +70,7 @@ export default function Main1() {
               style={{}}
             >
               <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-4 col-6">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                   <img
                     src={Imagelogo2}
                     alt=""
@@ -93,7 +93,7 @@ export default function Main1() {
               //   style={{  }}
             >
               <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-4 col-6">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                   <img
                     src={Imagelogo3}
                     alt=""
@@ -168,6 +168,7 @@ export default function Main1() {
                     <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
                       Tokens Staked
                     </span>
+                    <hr />
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
                     <img
@@ -183,6 +184,7 @@ export default function Main1() {
                     <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
                       Full Portfolio Value
                     </span>
+                    <hr style={{color:"white"}}/>
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
                     <img
@@ -290,11 +292,11 @@ export default function Main1() {
                 >
                   <Nav.Item className="stak-button1">
                     <div className="d-flex">
-                      <Nav.Link href="/home" style={{fontSize:'14px'}}>Active Stakes</Nav.Link>
+                      <Nav.Link href="/home" className="launch-1" style={{fontSize:'14px', color:'white'}}>Active Stakes</Nav.Link>
                     </div>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-1" className="launch-1" style={{marginLeft:'150px', fontSize:'14px',marginTop: "-10px"}}>Post Stakes</Nav.Link>
+                    <Nav.Link eventKey="link-1" className="launch-1" style={{marginLeft:'150px', fontSize:'14px',marginTop: "-10px", color:'white'}}>Post Stakes</Nav.Link>
                   </Nav.Item>
                 </Nav>
                 </div>

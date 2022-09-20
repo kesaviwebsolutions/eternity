@@ -43,7 +43,7 @@ export default function Navbar1() {
                     <Nav.Item>
                       <Nav.Link 
                       className="text-center"
-                      eventKey="link-1">
+                      eventKey="link-1" style={{color:'white'}}>
                         <img src={logo2} alt="" />
                         Launchpad
                       </Nav.Link>
