@@ -23,7 +23,7 @@ export default function Main() {
                   <div className="sc-1">
                     <div className="imag-1 d-flex">
                       <img src={Imagelogo} alt="" className="Image1" />
-                      <div style={{borderRight:' 1px solid #fff', paddingRight:'50px'}}>
+                      <div style={{borderRight:' 1px solid #2F272B', paddingRight:'50px'}}>
                         <p className="para1">$0.00</p>
                         <span className="span1">Liquidity Cap</span>
                       </div>
@@ -33,7 +33,7 @@ export default function Main() {
                   <div className="sc-2">
                     <div className="imag-2 d-flex">
                       <img src={Imagelogo1} alt="" className="Image1" />
-                      <div>
+                      <div style={{borderRight:' 1px solid #2F272B', paddingRight:'50px'}}>
                         <p className="para1">0</p>
                         <span className="span1">Rewards Claimed</span>
                       </div>
@@ -42,7 +42,7 @@ export default function Main() {
                   <div className="sc-3">
                     <div className="imag-3 d-flex">
                       <img src={Imagelogo2} alt="" className="Image1" />
-                      <div>
+                      <div style={{borderRight:' 1px solid #2F272B', paddingRight:'50px'}}>
                         <p className="para1">0</p>
                         <span className="span1">Total Stake</span>
                       </div>
@@ -82,7 +82,7 @@ export default function Main() {
                         <div className="sc-2">
                           <div className="imag-2 d-flex">
                             <img src={Imagelogo5} alt="" className="Image1" />
-                            <div>
+                            <div style={{borderRight:' 0.1rem solid #2F272B', paddingRight:'50px'}}>
                               <p className="para1">0</p>
                               <span className="span1">Tokens Stacked</span>
                             </div>
@@ -112,7 +112,7 @@ export default function Main() {
                     </div>
                   </div>
                 </div>
-              </div>{" "}
+              </div>
               <div className="col-lg-4  col-md-4 col-sm-12 col-12">
                 <div className="container">
                   <div className="">
@@ -121,36 +121,39 @@ export default function Main() {
                       </div>
                       <div className="">
                         </div>
-                        <div className="row  border-132"  style={{borderImageSource:"linear-gradient(to left, #00C853,#B2FF590)"}}>
+                        <div  className='border-meta-token' >
+                        <div className="row  border-132"  style={{background:'#191015',  borderRadius:'10px'}}>
                         <div className="col-lg-7 col-md-7 col-sm-7 col-7">
                           <div className="col ">
                             <div className="">
                               <div className="sc-1">
-                                <div className="imag-1 ">
+                                <div className="imag-1 "style={{borderBottom:"2px solid red"}}>
                                  
-                                  <div className="token1">
+                                  <div className="token1" style={{margin:"1rem"}}>
                                     <p className="para1">0%</p>
                                     <p className="para1"> Tokens Liquid </p>
-                                    <hr style={{width:'150px', color:'#A19D9F'}}/>
-                                    <span className="span-new "></span>
+                                    {/* <hr style={{width:'150px', color:'#A19D9F',marginTop:"1rem"}}/> */}
+                                    {/* <span className="span-new "></span> */}
                                   </div>
                                 
                              </div>
                               </div>
                               <div className="sc-2">
                                 <div className="imag-2">
-                                  <div>
-                                    <p className="para1">0%</p>
-                                    <p className="para1"> Tokens Staked </p>
+                                  <div >
                                     
-                                    <span className="span-new1"></span>
+                                    <p className="para1">0%</p>
+                                    <p className="para1"> Tokens Staked </p><hr style={{color:'white', paddingRight:'10px'}}/>
+                                    
+                                    
+                                    {/* <span className="span-new1"></span> */}
                                   </div>
                                 </div>
                               </div>
                               </div>
                             </div>
                             </div>
-                            <div className="col-lg-5 col-md-5 col-sm-5 col-5" style={{ backgroundColor:'#191015'}}>
+                            <div className="col-lg-5 col-md-5 col-sm-5 col-5" >
                            <div className="" style={{width:'100%'}}>
                            <div className="image-lg" >
                               <img
@@ -163,6 +166,7 @@ export default function Main() {
                            </div>
                           </div>
                     </div>
+                        </div>
                   </div>
                 </div>
               </div>
@@ -186,27 +190,32 @@ export default function Main() {
                     <button className="input1">MAX</button>
                     </div>
                   </div>
+                  
                   <div
-                      className="d-flex "
-                      style={{ justifyContent: "center" }}
+                      className="border-meta d-flex"
+                      style={{ justifyContent: "center", borderRadius:'100px'}}
                     >
-                      <button className="button-stake">
+                      <button className="button-stake" style={{paddingLeft:'1px', paddingRight:'1px'}}>
                         <div className="button-stake1">
                           Stake Your $MetaWeb3Pad Tokens
                         </div>
                       </button>
                     </div>
+                  
                 </div>
               </div>
             </div>
           </div>
           <div>
             <div className="container">
-              <div style={{ paddingTop: "50px" }}className='border-metal'>
+              
+              <div style={{ paddingTop: "50px", width:'300px' }}className='border-metal'>
+              <div className="border-meta-bullet"> 
                 <Nav
                   variant="pills"
                   defaultActiveKey="/home"
                   className="bottom1"
+                  style={{width:'350px'}}
                 >
                   <Nav.Item className="stak-button1">
                     <div className="d-flex">
@@ -217,7 +226,9 @@ export default function Main() {
                     <Nav.Link eventKey="link-1" className="launch-1" style={{marginLeft:'150px', fontSize:'14px'}}>Post Stakes</Nav.Link>
                   </Nav.Item>
                 </Nav>
+                </div>
               </div>
+              
             </div>
           </div>
         </div>

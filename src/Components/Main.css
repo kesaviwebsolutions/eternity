@@ -142,8 +142,6 @@ transform: translateY(-50%);
     color: #fff;
     /* border-radius: 100px; */
     background-color: #191015;
-
-   
 }
 .button-stake1{
     /* border-color: linear-gradient(90deg,#ffa133,#ad00ff); */
@@ -207,6 +205,7 @@ background: rgba(0, 0, 0, 0.1) none repeat scroll 0% 0%;
 .button-stake{
     border-radius: 100px;
     background: linear-gradient(90deg,#ffa133,#ad00ff);
+    border: none;
 }
 .border-132{
     border-image: linear-gradient(to right, green, lightgreen);
@@ -225,5 +224,35 @@ background: rgba(0, 0, 0, 0.1) none repeat scroll 0% 0%;
 .side-logo{
     width: 100%;
 border: 11px solid #2F272B;
+border-radius: 100px;
+}
+
+.border-meta-token{
+    background: linear-gradient(90deg,#ffa133,#ad00ff);
+  background-color: rgba(0, 0, 0, 0);
+border: none !important;
+border-radius: 8px;
+padding: 1px;
+  padding-right: 13px;
+  padding-left: 13px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: none !important;
+    color: White !important;
+  }
+  .nav-pills .nav-link{
+    color: white;
+  }
+  .nav-pills .nav-link:hover{
+    color: white !important;
+  }
+
+  .border-meta-bullet{
+    background: linear-gradient(90deg,#ffa133,#ad00ff);
+border: none !important;
+border-radius: 8px;
+padding: 1px;
+width: 353px;
 border-radius: 100px;
 }
