@@ -41,7 +41,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <hr />
+            <hr style={{color:"white",marginTop:"1rem"}}/>
             <div
               className="col-lg-3 col-md-3 col-sm-12 col-12 section1a"
               style={{}}
@@ -64,7 +64,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <hr />
+            <hr style={{color:"white",marginTop:"1rem"}}/>
             <div
               className="col-lg-3 col-md-3 col-sm-12 col-12 section1a"
               style={{}}
@@ -87,7 +87,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <hr />
+            <hr style={{color:"white",marginTop:"1rem"}}/>
             <div
               className="col-lg-3 col-md-3 col-sm-12 col-12 "
               //   style={{  }}
@@ -154,7 +154,7 @@ export default function Main1() {
                     <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem"}}>
                       Staked Balance
                     </span>
-                    <hr />
+                    <hr style={{color:"white"}}/>
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12">
                     <img
@@ -168,7 +168,7 @@ export default function Main1() {
                     <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
                       Tokens Staked
                     </span>
-                    <hr />
+                    <hr style={{color:"white"}}/>
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
                     <img
