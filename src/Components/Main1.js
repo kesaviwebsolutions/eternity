@@ -4,8 +4,8 @@ import Imagelogo from "../Components/Images/index.png";
 import Imagelogo1 from "../Components/Images/index4.png";
 import Imagelogo2 from "../Components/Images/index1.png";
 import Imagelogo3 from "../Components/Images/index3.png";
-import Imagelogo4 from "../Components/Images/index1.png";
-import Imagelogo5 from "../Components/Images/index5.png";
+import Imagelogo4 from "../Components/Images/index5.png";
+import Imagelogo5 from "../Components/Images/index1.png";
 import Imagelogo6 from "../Components/Images/index6.png";
 import Imagelogo7 from "../Components/Images/index7.png";
 import Mainlogo from "../Components/Images/logo.png";
@@ -27,7 +27,7 @@ export default function Main1() {
                     src={Imagelogo}
                     alt=""
                     className="Image1"
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginTop:'10px' }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -52,7 +52,7 @@ export default function Main1() {
                     src={Imagelogo1}
                     alt=""
                     className="Image1"
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginTop:'10px' }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -75,7 +75,7 @@ export default function Main1() {
                     src={Imagelogo2}
                     alt=""
                     className="Image1"
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginTop:'10px' }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -98,7 +98,7 @@ export default function Main1() {
                     src={Imagelogo3}
                     alt=""
                     className="Image1"
-                    style={{ float: "right" }}
+                    style={{ float: "right",marginTop:'10px' }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -138,11 +138,11 @@ export default function Main1() {
                   }}
                 >
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
-                    <img
-                      src={Imagelogo4}
+                  <img
+                      src={Imagelogo5}
                       alt=""
                       className="Image1"
-                      style={{ float: "right" }}
+                      // style={{ background:'red' }}
                     />
                     <span
                       className="p"
@@ -151,21 +151,21 @@ export default function Main1() {
                       $0.00
                     </span>
                     <br />
-                    <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                    <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem"}}>
                       Staked Balance
                     </span>
                     <hr />
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12">
                     <img
-                      src={Imagelogo5}
+                      src={Imagelogo4}
                       alt=""
                       className="Image1"
-                      style={{ float: "right" }}
+                      style={{ }}
                     />
                     <span style={{ color: "white", fontSize: "18px" }}>0</span>
                     <br />
-                    <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                    <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
                       Tokens Staked
                     </span>
                   </div>
@@ -174,23 +174,23 @@ export default function Main1() {
                       src={Imagelogo6}
                       alt=""
                       className="Image1"
-                      style={{ float: "right" }}
+                      style={{ }}
                     />
                     <span style={{ color: "white", fontSize: "18px" }}>
                       $0.00
                     </span>
                     <br />
-                    <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                    <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
                       Full Portfolio Value
                     </span>
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
-                    {/* <img
+                    <img
                       src={Imagelogo7}
                       alt=""
                       className="Image1"
-                      style={{ float: "right" }}
-                    /> */}
+                      style={{ }}
+                    />
                     <span style={{ color: "white", fontSize: "18px" }}>0</span>
                     <br />
                     <span style={{ color: "#A39FA1", fontSize: "14px" }}>
@@ -260,7 +260,7 @@ export default function Main1() {
                 placeholder="Amount to stake (min.1000)"
                 style={{ height:"4rem",width:"45rem"}}
               ></input></div>
-              <div className="col-lg-6 col-md-12 col-sm-12 col-12 input12" >
+              <div className="col-lg-5 col-md-12 col-sm-12 col-12 input12" >
               <button className="input1">10%</button>
               <button className="input1">25%</button>
               <button className="input1">50%</button>
@@ -268,10 +268,10 @@ export default function Main1() {
               <button className="input1 max" >MAX</button>
               </div>
           
-            <div className="col-lg-3 col-md-12 col-sm-12 col-12">
+            <div className="col-lg-4 col-md-12 col-sm-12 col-12">
               <button className="border-meta3">
                 <div className="button-stake1">
-                  Stake Your $MetaWeb3Pad Tokens
+                  Stake Your $EternityProtocol Tokens
                 </div>
               </button>
             </div>

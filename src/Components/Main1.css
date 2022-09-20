@@ -75,6 +75,9 @@
   scroll-behavior: smooth;
   transition: 0.6s;
 }
+.button-stake1:hover{
+    background:#ad00ff;
+}
 .border-meta3 {
   background: linear-gradient(90deg, #ffa133, #ad00ff);
   border: none !important;
