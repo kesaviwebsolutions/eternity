@@ -146,7 +146,7 @@ export default function Main1() {
                     />
                     <span
                       className="p"
-                      style={{ color: "white", fontWeight: "800" }}
+                      style={{ color: "white"}}
                     >
                       $0.00
                     </span>

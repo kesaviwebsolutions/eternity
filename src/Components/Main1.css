@@ -1,3 +1,5 @@
+
+
 .border-meta {
   background: linear-gradient(90deg, #ffa133, #ad00ff);
   border: none !important;
@@ -21,8 +23,6 @@
 
   }
 }
-
-
 
 .border-meta1 {
   background: linear-gradient(90deg, #ffa133, #ad00ff);
@@ -70,7 +70,8 @@
   border: none;
   border-radius: 100px;
   color: #fff;
-  font-family: grifter;
+  font-family: 'grifter', sans-serif;
+  font-weight: 700;
   padding: 15px 31px;
   scroll-behavior: smooth;
   transition: 0.6s;
@@ -92,14 +93,14 @@
   margin: 0 0 24px;
   margin-top: 25px;
 }
-.p {
+/* .p {
   margin: 0px 0px 12px;
-  font-family: "grifter";
+  font-family: grifter;
   font-weight: 700;
   font-size: 18px;
   line-height: 100%;
   color: rgb(255, 255, 255);
-}
+} */
 
 .row.total {
   background: rgb(25, 16, 21) none repeat scroll 0% 0%;
@@ -233,11 +234,10 @@ border-radius: 100px;
     }
     .stak-button1{
         border-radius: 100px 100px 100px 100px !important;
-
         position: absolute;
         left: 0;
         height: 48px;
-
+        font-family: grifter;
         background: linear-gradient(90deg,#ffa133,#ad00ff);
     }
     @media screen and (max-width: 1000px) and (min-width:600px){
