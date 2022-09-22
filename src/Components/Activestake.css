@@ -1,0 +1,15 @@
+.section1a {
+    border-right: 0.04rem solid white;
+  }
+  @media screen and (max-width: 800px) {
+    .section1a {
+      border-right: none;
+    }
+  }
+  
+  @media screen and (min-width: 800px) {
+    hr{
+      display: none;
+  
+    }
+  }

@@ -27,7 +27,7 @@ export default function Main1() {
                     src={Imagelogo}
                     alt=""
                     className="Image1"
-                    style={{ float: "right", marginTop:'10px' }}
+                    style={{ float: "right", marginTop: "10px" }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -41,7 +41,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <hr style={{color:"white",marginTop:"1rem"}}/>
+            <hr style={{ color: "white", marginTop: "1rem" }} />
             <div
               className="col-lg-3 col-md-3 col-sm-12 col-12 section1a"
               style={{}}
@@ -52,7 +52,7 @@ export default function Main1() {
                     src={Imagelogo1}
                     alt=""
                     className="Image1"
-                    style={{ float: "right", marginTop:'10px' }}
+                    style={{ float: "right", marginTop: "10px" }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -64,7 +64,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <hr style={{color:"white",marginTop:"1rem"}}/>
+            <hr style={{ color: "white", marginTop: "1rem" }} />
             <div
               className="col-lg-3 col-md-3 col-sm-12 col-12 section1a"
               style={{}}
@@ -75,7 +75,7 @@ export default function Main1() {
                     src={Imagelogo2}
                     alt=""
                     className="Image1"
-                    style={{ float: "right", marginTop:'10px' }}
+                    style={{ float: "right", marginTop: "10px" }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -87,18 +87,15 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <hr style={{color:"white",marginTop:"1rem"}}/>
-            <div
-              className="col-lg-3 col-md-3 col-sm-12 col-12 "
-              //   style={{  }}
-            >
+            <hr style={{ color: "white", marginTop: "1rem" }} />
+            <div className="col-lg-3 col-md-3 col-sm-12 col-12 ">
               <div className="row">
                 <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                   <img
                     src={Imagelogo3}
                     alt=""
                     className="Image1"
-                    style={{ float: "right",marginTop:'10px' }}
+                    style={{ float: "right", marginTop: "10px" }}
                   />
                 </div>
                 <div className="col-lg-8 col-md-8 col-sm-8 col-6">
@@ -116,88 +113,112 @@ export default function Main1() {
       <div className="container">
         <h2 className="heading-2">Balances</h2>
         <div className="">
-          <div
-            className="row"
-            //   style={{
-            //     background: "#191015",
-            //     borderRadius: "10px",
-            //     padding: "2rem 3rem",
-            //     margin: "0.01rem",
-            //   }}
-          >
-            <div className="col-lg-8 col-md-12 col-sm-12 col-12">
+          <div className="row ">
+            <div className="col-lg-8 col-md-12 col-sm-12 col-12 ">
               <div className="border-meta">
                 <div
-                  className="row"
+                  className="row total"
                   style={{
                     marginRight: "1rem",
                     background: "#191015",
                     borderRadius: "10px",
-                    padding: "1rem 3rem",
+                    padding: "2rem 3rem",
                     margin: "0.01rem",
                   }}
                 >
-                  <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
-                  <img
+                  <div className="col-lg-3 col-md-3 col-sm-6 col-12 section1a">
+                    <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-4 col-2">
+                    <img
                       src={Imagelogo5}
                       alt=""
                       className="Image1"
-                      // style={{ background:'red' }}
-                    />
-                    <span
-                      className="p"
-                      style={{ color: "white"}}
-                    >
+                     
+                    /></div>
+                    <div className="col-lg-8 col-md-8 col-sm-8 col-6">
+                    <span className="p" style={{ color: "white" }}>
                       $0.00
                     </span>
                     <br />
-                    <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem"}}>
+                    <span
+                      style={{
+                        color: "#A39FA1",
+                        fontSize: "14px",
+                        // marginLeft: "2rem",
+                      }}
+                    >
                       Staked Balance
                     </span>
-                    <hr style={{color:"white"}}/>
+                    <hr style={{ color: "white" }} /></div>
+                    </div>
                   </div>
-                  <div className="col-lg-3 col-md-3 col-sm-6 col-12">
+                  <div className="col-lg-3 col-md-3 col-sm-6 col-12 section1a">
+                    <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-4 col-2">
+                    
                     <img
                       src={Imagelogo4}
                       alt=""
                       className="Image1"
-                      style={{ }}
-                    />
+                      style={{}}
+                    /></div>
+                    <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                     <span style={{ color: "white", fontSize: "18px" }}>0</span>
                     <br />
-                    <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
+                    <span
+                      style={{
+                        color: "#A39FA1",
+                        fontSize: "14px",
+                        // marginLeft: "2rem",
+                      }}
+                    >
                       Tokens Staked
                     </span>
-                    <hr style={{color:"white"}}/>
+                    <hr style={{ color: "white" }} /></div>
+                    </div>
                   </div>
-                  <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
+                  <div className="col-lg-3 col-md-3 col-sm-6 col-12 section1a">
+                    <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                     <img
                       src={Imagelogo6}
                       alt=""
                       className="Image1"
-                      style={{ }}
-                    />
+                      style={{}}
+                    /></div>
+                    <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                     <span style={{ color: "white", fontSize: "18px" }}>
                       $0.00
                     </span>
                     <br />
-                    <span style={{ color: "#A39FA1", fontSize: "14px",marginLeft:"2rem" }}>
+                    <span
+                      style={{
+                        color: "#A39FA1",
+                        fontSize: "14px",
+                        // marginLeft: "2rem",
+                      }}
+                    >
                       Full Portfolio Value
                     </span>
-                    <hr style={{color:"white"}}/>
+                    <hr style={{ color: "white" }} /></div>
+                    </div>
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-6 col-12 ">
+                    <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-4 col-2">
                     <img
                       src={Imagelogo7}
                       alt=""
                       className="Image1"
-                      style={{ }}
-                    />
+                      style={{}}
+                    /></div>
+                    <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                     <span style={{ color: "white", fontSize: "18px" }}>0</span>
                     <br />
                     <span style={{ color: "#A39FA1", fontSize: "14px" }}>
                       Free Tokens
-                    </span>
+                    </span></div>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -210,40 +231,39 @@ export default function Main1() {
                     marginRight: "1rem",
                     background: "#191015",
                     borderRadius: "10px",
-                    padding:"0.5rem",
+                    padding: "0.5rem",
                     margin: "0.01rem",
                   }}
                 >
                   <div className="col-lg-8 col-md-8 col-sm-8 col-8">
-                    <div style={{borderBottom:"0.1rem solid #2F272B",width:"84%"}}>
-                    <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
-                      <span style={{ color: "white", fontSize: "18px", }}>
-                        0%
-                      </span>
-                      <br />
-                      <span
-                        style={{
-                          color: "#A39FA1",
-                          
-                        }}
-                      >
-                        Tokens Liquid{" "}
-                      </span>
-                    </div>
+                    <div
+                      style={{
+                        borderBottom: "0.1rem solid #2F272B",
+                        width: "84%",
+                      }}
+                    >
+                    
+                      <button className="border-meta4">
+                        <div className="button-stake01">Emergency Withdraw</div>
+                      </button>
                     </div>
 
-                    {/* <hr style={{color:"white"}} /> */}
+                    
 
                     <div style={{ paddingTop: "24px" }}>
-                      <span style={{ color: "white", fontSize: "18px" }}>
-                        0%
-                      </span>
-                      <br />
-                      <span style={{ color: "#A39FA1" }}>Tokens Staked </span>
+                     
+                      <button className="border-meta3">
+                        <div className="button-stake1">Withdraw</div>
+                      </button>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-4">
-                    <img src={Mainlogo} alt="" className="Image11" style={{width:"160%",marginTop:"14%"}} />
+                    <img
+                      src={Mainlogo}
+                      alt=""
+                      className="Image11"
+                      style={{ width: "160%", marginTop: "14%" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -260,27 +280,26 @@ export default function Main1() {
                 type="number"
                 className="input-type"
                 placeholder="Amount to stake (min.1000)"
-                style={{ height:"4rem",width:"45rem"}}
-              ></input></div>
-              <div className="col-lg-5 col-md-12 col-sm-12 col-12 input12" >
+                style={{ height: "4rem", width: "45rem" }}
+              ></input>
+            </div>
+            <div className="col-lg-5 col-md-12 col-sm-12 col-12 input12">
               <button className="input1">10%</button>
               <button className="input1">25%</button>
               <button className="input1">50%</button>
               <button className="input1">75%</button>
-              <button className="input1 max" >MAX</button>
-              </div>
-          
+              <button className="input1 max">MAX</button>
+            </div>
+
             <div className="col-lg-4 col-md-12 col-sm-12 col-12">
               <button className="border-meta3">
-                <div className="button-stake1">
-                  Stake Your $EternityProtocol Tokens
-                </div>
+                <div className="button-stake1">Total Stake</div>
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="container">
+      {/* <div className="container">
               
               <div style={{ paddingTop: "50px", width:'300px' }}className='border-metal'>
               <div className="border-meta-bullet"> 
@@ -302,7 +321,7 @@ export default function Main1() {
                 </div>
               </div>
               
-            </div>
+            </div> */}
     </section>
   );
 }

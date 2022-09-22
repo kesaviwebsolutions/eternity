@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../Components/Images/logo.png";
 import logo2 from "../Components/Images/index2.png";
 import Nav from "react-bootstrap/Nav";
-import logo1 from "../Components/Images/index1.png";
+import logo1 from "../Components/Images/stacking1.png";
 
 export default function Navbar1() {
+  const { activeColor, setActiveColor } = useState(1);
+
   return (
     <section>
       <div className="container py-5">
@@ -25,32 +27,40 @@ export default function Navbar1() {
                     defaultActiveKey="/home"
                     className="stak1"
                   >
-                    <Nav.Item className="stak-button">
+                    <Nav.Item className={`stak-button ${activeColor == 1 ? "" :"active"} `}>
                       <div className="d-flex">
                         <Nav.Link
-                          href="/home"
+                          to="/home"
                           className="nav-link1"
                           style={{
+                            color: "white",
                             borderRadius: "100px 100px 100px 100px",
                             // padding: "5px 5px",
                           }}
+                          onClick={()=> setActiveColor(1)}
                         >
-                          <img src={logo1} alt="" className="img-logo"/>
+                          <img src={logo1} alt="" className="img-logo" />
                           Staking
                         </Nav.Link>
                       </div>
                     </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link 
-                      className="text-center"
-                      eventKey="link-1" style={{color:'white'}}>
+                    <Nav.Item className='active-button'>
+                      <Nav.Link
+                        to="/home"
+                        className="text-center"
+                        eventKey="link-1"
+                        style={{
+                          color: "white",
+                          borderRadius: "100px 100px 100px 100px",
+                        }}
+                      >
                         <img src={logo2} alt="" />
-                        Launchpad
+                        Active Stake
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey="disabled" disabled>
-                        Soon
+                        Past Stake
                       </Nav.Link>
                     </Nav.Item>
                   </Nav>
@@ -63,7 +73,7 @@ export default function Navbar1() {
               <button
                 className="btn"
                 type="submit"
-                style={{ fontWeight: "700", color: "white"}}
+                style={{ fontWeight: "700", color: "white" }}
               >
                 Connect Wallet
               </button>
