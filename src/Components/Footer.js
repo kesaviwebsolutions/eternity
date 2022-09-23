@@ -5,7 +5,7 @@ export default function Footer() {
     <section>
         <div className='container'>
             <div>
-            <p className='footer'>2022 © eternity. All Rights Reserved.</p>
+            <p className='footer'>2022 © $ETRNTY Tokens. All Rights Reserved.</p>
             </div>
         </div>
     </section>
