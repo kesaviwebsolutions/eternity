@@ -74,7 +74,7 @@
 
 
 .btn {
-  padding: 15px 31px !important;
+  padding: 10px 35px !important;
   border-radius: 100px !important;
   
     background: #191015 !important;
@@ -155,6 +155,7 @@
     font-size: 12px;
 }
 }
+
 a.nav-link.active{
   color:white !important;
 }
@@ -182,4 +183,24 @@ a.nav-link.active{
   .logo1{
     margin-top: -50px;
   }
+}
+
+.nav-text{
+  color:#fff;
+  font-family: roboto;
+  padding: 20px;
+  text-decoration: none;
+
+}
+.active-border{
+  height: 40px;
+}
+.active{
+  height: 40px;
+}
+a{
+  color: #fff !important;
+}
+.nav-item {
+  padding-top: 6px;
 }
