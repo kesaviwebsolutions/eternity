@@ -7,11 +7,18 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { Container } from "@mui/system";
+import { Container} from "@mui/system";
+import Typography from '@mui/material/Typography';
 import Imagelogo5 from "../Components/Images/stakebalance.png";
 import Imagelogo4 from "../Components/Images/tokenstake.png";
 import Imagelogo6 from "../Components/Images/portfolio.png";
 import Imagelogo7 from "../Components/Images/rewardtokens.png";
+import { StakeBalace, tokenBalance, getDetails, unstake, emergencyaction } from "./../Web3/Wallets"
+import toast, { Toaster } from 'react-hot-toast'
+
+
+const notify = (msg) => toast.success(msg)
+const warning = (msg) => toast.error(msg)
 
 const columns = [
   { id: "name", label: "SNO.", minWidth: 170, align: "left" },
@@ -66,34 +73,75 @@ function createData(name, code, population, size) {
 
 const rows = [
   createData("1", 23423234, 23423234, 1324171354, 3287263),
-  createData("2", 23423234, 1403500365, 9596961),
-  createData("3", 23423234, 60483973, 301340),
-  createData("4", 23423234, 327167434, 9833520),
-  createData("5", 23423234, 37602103, 9984670),
-  createData("6", 23423234, 25475400, 7692024),
-  createData("7", 23423234, 83019200, 357578),
-  createData("8", 23423234, 4857000, 70273),
-  createData("9", 23423234, 126577691, 1972550),
-  createData("10", 23423234, 126317000, 377973),
-  createData("11", 23423234, 67022000, 640679),
-  createData("12", 23423234, 67545757, 242495),
-  createData("13", 23423234, 146793744, 17098246),
-  createData("14", 23423234, 200962417, 923768),
-  createData("15", 23423234, 210147125, 8515767),
+ 
 ];
 
-export default function Activestake() {
+export default function Activestake({account}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [userstake, setUserState] = React.useState(0)
+  const [balance, setBalance] = React.useState(0)
+  const [stakeEvents, setStakeEvents] = React.useState([])
+
+  React.useEffect(()=>{
+    const init =async()=>{
+      const stake = await StakeBalace();
+      setUserState(stake)
+      const bal = await tokenBalance();
+      setBalance(bal)
+      const events = await getDetails()
+      setStakeEvents(events)
+      console.log("Events are ",events)
+    }
+    init();
+  },[account])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
+const upcommingDate=(time)=>{
+    var current = Math.round(new Date().getTime()/1000);
+    var seconds =  time-current 
+    if(seconds > 0){
+      const days = Math.floor(seconds/86400)
+      const hour = Math.floor(seconds / 3600) % 24;
+      const min = Math.floor(seconds / 60) % 60;
+      const sec = seconds % 60;
+      // return days+"D :"+hour+"H :"+min+"M :"+sec+"S"
+      return days+"D " + hour + "H"
+    }
+    else{
+      return "UNSTAKE"
+    }
+  } 
+
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const EmergencyUnstake =async(id)=>{
+    const data = await emergencyaction(id);
+    if(data.status){
+      notify('Unstake Successfully')
+      const stake = await StakeBalace();
+      setUserState(stake)
+      const bal = await tokenBalance();
+      setBalance(bal)
+    }
+  }
+
+  const unStakeAmount = async (id) => {
+    const data = await unstake(id)
+    if (data.status) {
+      notify('Staked Successfully')
+      const stake = await StakeBalace();
+      setUserState(stake)
+      const bal = await tokenBalance();
+      setBalance(bal)
+    }
+  }
 
   return (
     <>
@@ -128,7 +176,7 @@ export default function Activestake() {
                         style={{ fontFamily: "roboto" }}
                       >
                         <span className="p" style={{ color: "white" }}>
-                          $0.00
+                          ${userstake}
                         </span>
                         <br />
                         <span
@@ -160,7 +208,7 @@ export default function Activestake() {
                       </div>
                       <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          0
+                          {userstake}
                         </span>
                         <br />
                         <span
@@ -196,7 +244,7 @@ export default function Activestake() {
                         style={{ fontFamily: "roboto" }}
                       >
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          $0.00
+                          ${balance}
                         </span>
                         <br />
                         <span
@@ -231,7 +279,7 @@ export default function Activestake() {
                         style={{ fontFamily: "roboto" }}
                       >
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          0
+                          {balance}
                         </span>
                         <br />
                         <span style={{ color: "#A39FA1", fontSize: "14px" }}>
@@ -273,28 +321,16 @@ export default function Activestake() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => {
+                {stakeEvents.map((row) => {
                   return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell
-                            key={column.id}
-                            align={column.align}
-                            sx={{ color: "white" }}
-                          >
-                            {column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
-                        );
-                      })}
+                    <TableRow hover role="checkbox"  tabIndex={-1} key={row[0]} >
+                      <TableCell> <Typography color="whitesmoke">{stakeEvents.indexOf(row) + 1}</Typography></TableCell>
+                      <TableCell> <Typography color="whitesmoke">{row.amount/10**18}</Typography></TableCell>
+                      <TableCell> <Typography color="whitesmoke">{new Date(Number(row.starttime)*1000).toLocaleDateString()}</Typography></TableCell>
+                      <TableCell> <Typography color="whitesmoke">{new Date(Number(row.endtime)*1000).toLocaleDateString()}</Typography></TableCell>
+                      <TableCell> <Typography color="whitesmoke">{row.lockupDuration}</Typography></TableCell>
+                      <TableCell> <Typography color="whitesmoke">{row.claimedReward}</Typography></TableCell>
+                      <TableCell>{!row.claimed ? <Typography color="whitesmoke">{ row.endtime < new Date().getTime/1000 ? <Typography color="whitesmoke" onClick={()=>{unStakeAmount(row.id)}}>UNSTAKE</Typography> : <Typography color="whitesmoke" onClick={()=>EmergencyUnstake(row.id)}>Emergency Withdraw</Typography>}</Typography>:<Typography color="whitesmoke">CLAIMED</Typography>}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -303,6 +339,7 @@ export default function Activestake() {
           </TableContainer>
         </Container>
       </Paper>
+      <Toaster/>
     </>
   );
 }

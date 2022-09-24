@@ -28,7 +28,7 @@ function App() {
     };
 
     init();
-  }, []);
+  }, [account]);
 
   const WalletC = async () => {
     await WalletConnect();

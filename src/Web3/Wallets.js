@@ -2,7 +2,7 @@ import Web3 from 'web3/dist/web3.min.js'
 import WalletConnectProvider from '@walletconnect/web3-provider/dist/umd/index.min.js'
 import { StakingABI, StakingAddress, TokenABI, TokenAddress } from './Credentials'
 
-let web3
+let web3 = new Web3(window.ethereum)
 var provider = new WalletConnectProvider({
   rpc: {
     56: 'https://bsc-dataseed1.ninicoin.io',
@@ -139,7 +139,7 @@ export const StakeBalace = async()=>{
     console.log("MY STAKE",data)
     return data/10**18;
   } catch (error) {
-    
+    console.log(error)
   }
 }
 
