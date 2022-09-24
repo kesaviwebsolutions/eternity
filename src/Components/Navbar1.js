@@ -5,8 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 // import logo1 from "../Components/Images/stake.png";
 
-export default function Navbar1() {
+export default function Navbar1({account, Dissconnect, Metamask}) {
   const [activeColor, setActiveColor] = useState(1);
+
+  const slice = (address) => {
+    const first = address.slice(0, 4)
+    const second = address.slice(38)
+    return first + '...' + second
+  }
 
   return (
     <section>
@@ -72,20 +78,27 @@ export default function Navbar1() {
           </div>
 
           <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-            <form className="connect-wallet1" role="search">
+            <div className="connect-wallet1" role="search">
               <button
                 className="btn"
-                type="submit"
                 id="connect1"
                 style={{
                   fontWeight: "700",
                   color: "white",
                   fontFamily: "roboto",
                 }}
+                onClick={()=>{
+                  if(account){
+                    Dissconnect();
+                  }
+                  else{
+                    Metamask();
+                  }
+                }}
               >
-                Connect Wallet
+                {account ? slice(account) : "Connect"}
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
