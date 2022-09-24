@@ -4,6 +4,7 @@ import Logo from "../Components/Images/logo.png";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 // import logo1 from "../Components/Images/stake.png";
+import {BiLogIn} from "react-icons/bi"
 
 export default function Navbar1({account, Dissconnect, Metamask}) {
   const [activeColor, setActiveColor] = useState(1);
@@ -96,7 +97,7 @@ export default function Navbar1({account, Dissconnect, Metamask}) {
                   }
                 }}
               >
-                {account ? slice(account) : "Connect"}
+                {account ? slice(account) : "Connect"}{" "}{account ? <BiLogIn size={20}/> : ""}
               </button>
             </div>
           </div>
