@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Main1.css";
 import Imagelogo from "../Components/Images/liquiditystake1.png";
 import Imagelogo1 from "../Components/Images/reward.png";
@@ -10,8 +10,54 @@ import Imagelogo6 from "../Components/Images/portfolio.png";
 import Imagelogo7 from "../Components/Images/rewardtokens.png";
 import Mainlogo from "../Components/Images/logo.png";
 import Nav from "react-bootstrap/Nav";
+import { StakeBalace, tokenBalance, totalstakedinContract, tokenpending, tokenDistribute, Stake } from "./../Web3/Wallets"
+import toast, { Toaster } from 'react-hot-toast'
 
-export default function Main1() {
+
+const notify = (msg) => toast.success(msg)
+const warning = (msg) => toast.error(msg)
+
+const time = new Date().getTime();
+
+export default function Main1({account}) {
+  const [apy, setAPY] = useState()
+  const [duration, setDuration] = useState(0)
+  const [userstake, setUserState] = React.useState(0)
+  const [balance, setBalance] = React.useState(0)
+  const [stakeTotal, setStakeTotal] = useState(0);
+  const [pending, setPending] = useState(0)
+  const [disturbute, setDisturbute] = useState(0)
+  const [count, setCount] = useState(0);
+
+  React.useEffect(()=>{
+    const init =async()=>{
+      const stake = await StakeBalace();
+      setUserState(stake)
+      const bal = await tokenBalance();
+      setBalance(bal)
+      const data = await totalstakedinContract();
+      setStakeTotal(data);
+      const pend = await tokenpending();
+      setPending(pend)
+      const dis = await tokenDistribute();
+      setDisturbute(dis)
+    }
+    init();
+  },[account])
+
+  const StakeAmount = async () => {
+    const data = await Stake(duration, count);
+    if (data.status) {
+      notify("Staked Successfully");
+      const data = await totalstakedinContract();
+      setStakeTotal(data);
+      const bal = await tokenBalance();
+      setBalance(bal);
+      const stake = await StakeBalace();
+      setUserState(stake)
+    }
+  };
+
   return (
     <section>
       <div className="container">
@@ -35,14 +81,14 @@ export default function Main1() {
                   // style={{ fontFamily: "roboto" }}
                 >
                   <span style={{ color: "white", fontSize: "18px" }}>
-                    $0.00
+                    ${stakeTotal}
                   </span>
                   <br />
                   <span
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Liquidity Cap
+                    Total Tokon (USD)
                   </span>
                 </div>
               </div>
@@ -69,14 +115,14 @@ export default function Main1() {
                     className="span-pp"
                     style={{ color: "white", fontSize: "18px" }}
                   >
-                    0
+                    {stakeTotal}
                   </span>
                   <br />
                   <span
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Rewards Claimed
+                    Total Token Stake
                   </span>
                 </div>
               </div>
@@ -103,14 +149,14 @@ export default function Main1() {
                     className="span-pp"
                     style={{ color: "white", fontSize: "18px" }}
                   >
-                    0
+                    {Number(pending).toFixed(3)}
                   </span>
                   <br />
                   <span
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Staked
+                   Total Pendign Rewards
                   </span>
                 </div>
               </div>
@@ -134,14 +180,14 @@ export default function Main1() {
                     className="span-pp"
                     style={{ color: "white", fontSize: "18px" }}
                   >
-                    0
+                    {disturbute}
                   </span>
                   <br />
                   <span
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Rewards Tokens
+                    Total Rewards Distribute
                   </span>
                 </div>
               </div>
@@ -180,7 +226,7 @@ export default function Main1() {
                         style={{ fontFamily: "roboto" }}
                       >
                         <span className="span-pp" style={{ color: "white" }}>
-                          $0.00
+                          ${userstake}
                         </span>
                         <br />
                         <span
@@ -190,7 +236,7 @@ export default function Main1() {
                             fontSize: "14px",
                           }}
                         >
-                          Staked Balance
+                          Staked Balance(USD)
                         </span>
                         <hr style={{ color: "white" }} />
                       </div>
@@ -212,7 +258,7 @@ export default function Main1() {
                       </div>
                       <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          0
+                          {userstake}
                         </span>
                         <br />
                         <span
@@ -252,7 +298,7 @@ export default function Main1() {
                           className="span-pp"
                           style={{ color: "white", fontSize: "18px" }}
                         >
-                          $0.00
+                          ${balance}
                         </span>
                         <br />
                         <span
@@ -291,14 +337,14 @@ export default function Main1() {
                           className="span-pp"
                           style={{ color: "white", fontSize: "18px" }}
                         >
-                          0
+                          {balance}
                         </span>
                         <br />
                         <span
                           className="span-pp"
                           style={{ color: "#A39FA1", fontSize: "14px" }}
                         >
-                          Free Tokens
+                          Tokens Balance
                         </span>
                       </div>
                     </div>
@@ -312,7 +358,10 @@ export default function Main1() {
       <div className="container">
         <h2 className="heading-2">Secure</h2>
         <div className="row ">
-          <div className=" col-lg-6 col-md-6 col-sm-12 col-12">
+          <div className=" col-lg-6 col-md-6 col-sm-12 col-12" onClick={()=>{
+            setDuration(7)
+            setAPY(150)
+          }}>
             <div className="border-meta2">
               <div className="total">
                 <div
@@ -349,7 +398,10 @@ export default function Main1() {
             </div>
           </div>
 
-          <div className=" col-lg-6 col-md-6 col-sm-12 col-12">
+          <div className=" col-lg-6 col-md-6 col-sm-12 col-12" onClick={()=>{
+            setDuration(30)
+            setAPY(300)
+          }}>
             <div className="border-meta2">
               <div className="total">
                 <div
@@ -393,16 +445,18 @@ export default function Main1() {
               <input
                 type="number"
                 className="input-type"
+                value={count}
+                onChange={(e)=>setCount(e.target.value)}
                 placeholder="Amount to stake (min.1000)"
                 style={{ height: "4rem", width: "45rem" }}
               ></input>
             </div>
             <div className="col-lg-5 col-md-12 col-sm-12 col-12 input12">
-              <button className="input1">10%</button>
-              <button className="input1">25%</button>
-              <button className="input1">50%</button>
-              <button className="input1">75%</button>
-              <button className="input1 max">MAX</button>
+              <button className="input1"onClick={()=>setCount((balance*10)/100)}>10%</button>
+              <button className="input1"onClick={()=>setCount((balance*25)/100)}>25%</button>
+              <button className="input1"onClick={()=>setCount((balance*50)/100)}>50%</button>
+              <button className="input1"onClick={()=>setCount((balance*75)/100)}>75%</button>
+              <button className="input1 max" onClick={()=>setCount(balance)}>MAX</button>
             </div>
 
             <div className="col-lg-4 col-md-12 col-sm-12 col-12">
@@ -410,7 +464,7 @@ export default function Main1() {
                 className="border-meta3"
                 style={{ width: "100%", background: "#191015", border: "none" }}
               >
-                <div className="button-stake1">Stake "$ETRNTY Tokens"</div>
+                <div className="button-stake1" onClick={()=>StakeAmount()}>Stake "$ETRNTY Tokens"</div>
               </button>
             </div>
           </div>
@@ -426,34 +480,41 @@ export default function Main1() {
         <div className="summary-content">
           <p className="p">Duration</p>
           <p className="quotation">:</p>
-          <p className="sc">90 Days</p>
+          <p className="sc">{duration} Days</p>
         </div>
         <div className="summary-content">
           <p className="p">APY</p>
           <p className="quotation1">:</p>
-          <p className="sc">50 % </p>
+          <p className="sc">{apy} % </p>
         </div>
         <div className="summary-content">
           <p className="p">Staked Amount</p>
           <p className="quotation2">:</p>
-          <p className="sc">$GENESIS</p>
+          <p className="sc">{count}GENESIS</p>
         </div>
         <div className="summary-content">
           <p className="p">Estimated Return</p>
           <p className="quotation3">:</p>
-          <p className="sc">0 $GENESIS</p>
+          <p className="sc">{duration == 30
+                    ? `${count * 1.0292}`
+                    : duration == 90
+                    ? `${count * 1.1875}`
+                    : duration == 180
+                    ? `${count * 1.45}`
+                    : `${count * 2.3}`}{" "}GENESIS</p>
         </div>
         <div className="summary-content">
           <p className="p">Start Date</p>
           <p className="quotation4">:</p>
-          <p className="sc">9/24/2022, 1:37:17 PM</p>
+          <p className="sc">{new Date().toLocaleString()}</p>
         </div>
         <div className="summary-content">
           <p className="p">End Date</p>
           <p className="quotation">:</p>
-          <p className="sc">12/23/2022, 1:37:11 PM</p>
+          <p className="sc">{new Date(time + duration * 86400000).toLocaleString()}</p>
         </div>
       </div>
+      <Toaster/>
     </section>
   );
 }

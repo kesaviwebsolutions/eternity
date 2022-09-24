@@ -16,6 +16,9 @@ import Imagelogo7 from "../Components/Images/rewardtokens.png";
 import { StakeBalace, tokenBalance, getDetails, unstake, emergencyaction } from "./../Web3/Wallets"
 import toast, { Toaster } from 'react-hot-toast'
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const notify = (msg) => toast.success(msg)
 const warning = (msg) => toast.error(msg)
@@ -81,7 +84,8 @@ export default function Activestake({account}) {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [userstake, setUserState] = React.useState(0)
   const [balance, setBalance] = React.useState(0)
-  const [stakeEvents, setStakeEvents] = React.useState([])
+  const [stakeEvents, setStakeEvents] = React.useState()
+  
 
   React.useEffect(()=>{
     const init =async()=>{
@@ -91,7 +95,7 @@ export default function Activestake({account}) {
       setBalance(bal)
       const events = await getDetails()
       setStakeEvents(events)
-      console.log("Events are ",events)
+      
     }
     init();
   },[account])
@@ -283,7 +287,7 @@ const upcommingDate=(time)=>{
                         </span>
                         <br />
                         <span style={{ color: "#A39FA1", fontSize: "14px" }}>
-                          Free Tokens
+                          Tokens Balance
                         </span>
                       </div>
                     </div>
@@ -305,7 +309,7 @@ const upcommingDate=(time)=>{
               borderRadius: "10px",
             }}
           >
-            <Table stickyHeader aria-label="sticky table">
+            {stakeEvents ? <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>
                   {columns.map((column) => (
@@ -335,7 +339,7 @@ const upcommingDate=(time)=>{
                   );
                 })}
               </TableBody>
-            </Table>
+            </Table> : <Skeleton count={10} height='40' width='100'/>}
           </TableContainer>
         </Container>
       </Paper>
