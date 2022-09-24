@@ -60,8 +60,9 @@
   padding: 0px 20px;
 } 
 .nav-background {
-  border: 1px solid #F1B80B;
+  border: 2px solid #F1B80B;
   border-radius: 25px;
+  
 }
 .navbar-nav {
   display: flex;

@@ -12,14 +12,14 @@ export default function Navbar1() {
     <section>
       <div className="container py-5">
         <div className="row">
-          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
+          <div className="col-lg-4 col-md-4 col-sm-12 col-12">
             <div className="image">
               <a className="navbar-brand" href="#">
                 <img src={Logo} alt="" className="logo1" />
               </a>
             </div>
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+          <div className="col-lg-4 col-md-4 col-sm-12 col-12">
             <div className="nav-background">
               <Nav variant="pills" >
                 <div className="active-border">
@@ -54,7 +54,7 @@ export default function Navbar1() {
                     Active Stake
                   </Link>
                 </Nav.Item>
-                <Nav.Item
+                {/* <Nav.Item
                 // className={`${activeColor === 3 ? "active" : ""}`}
                 // onClick={() => setActiveColor(3)}
                 >
@@ -66,12 +66,12 @@ export default function Navbar1() {
                   >
                     Soon
                   </Link>
-                </Nav.Item>
+                </Nav.Item> */}
               </Nav>
             </div>
           </div>
 
-          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
+          <div className="col-lg-4 col-md-4 col-sm-12 col-12">
             <form className="connect-wallet1" role="search">
               <button
                 className="btn"

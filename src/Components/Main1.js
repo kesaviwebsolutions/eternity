@@ -114,7 +114,7 @@ export default function Main1() {
         <h2 className="heading-2">Balances</h2>
         <div className="">
           <div className="row ">
-            <div className="col-lg-8 col-md-12 col-sm-12 col-12 ">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12 ">
               <div className="border-meta">
                 <div
                   className="row total"
@@ -247,7 +247,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-12 col-sm-12 col-12 ">
+            {/* <div className="col-lg-4 col-md-12 col-sm-12 col-12 ">
               <div className="border-meta">
                 <div
                   className="row emm-bu"
@@ -287,12 +287,12 @@ export default function Main1() {
                       src={Mainlogo}
                       alt=""
                       className="Image11"
-                      // style={{ width: "114%", marginTop: "15%" }}
+                      
                     />
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -377,7 +377,7 @@ export default function Main1() {
 
             <div className="col-lg-4 col-md-12 col-sm-12 col-12">
               <button className="border-meta3" style={{width:"100%", background:'#191015', border:'none'}}>
-                <div className="button-stake1">Stake "$Eternity Tokens"</div>
+                <div className="button-stake1">Stake "$ETRNTY Tokens"</div>
               </button>
             </div>
           </div>
