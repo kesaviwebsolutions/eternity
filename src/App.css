@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap");
 .App {
   background-color: #091622;
   background-image: url(/src/Components/Images/background1.png);
@@ -14,9 +14,7 @@
   margin-left: -35px;
   margin-top: -64px;
 }
-/* .gapping {
-  margin-left: 82px;
-} */
+
 .row .navstyle {
   margin-top: -44px;
 }
@@ -26,43 +24,21 @@
     scroll 0% 0%;
 }
 
-
-.active{
+.active {
   border-radius: 100px;
-  background:#191015 ;
-  border: 2px solid #F1B80B;
+  background: #191015;
+  border: 2px solid #f1b80b;
 }
 
-
-.stak1 {
-  padding: 5px 32px;
-  border-radius: 100px;
-  font-family: "roboto";
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
-  display: flex;
-  -moz-box-align: center;
-  align-items: center;
-  -moz-box-pack: center;
-  justify-content: center;
-  gap: 0px;
-  color: rgb(255, 255, 255);
-  /* opacity: 0.6; */
-  transition: all 0.6s ease 0s;
-  position: relative;
-  /* max-width: 420px; */
-  min-width: 350px;
-  border: 2px solid white !important;
-  background-color: rgb(11, 5, 24);
-}
 .d-flex {
   padding: 0px 20px;
-} 
+}
 .nav-background {
-  border: 2px solid #F1B80B;
+  border: 2px solid #f1b80b;
+  max-width: 227px;
+  display: block;
   border-radius: 25px;
-  
+  margin: auto;
 }
 .navbar-nav {
   display: flex;
@@ -73,16 +49,15 @@
   /* background-color: rgb(11, 5, 24); */
 }
 
-
 .btn {
   padding: 10px 35px !important;
   border-radius: 100px !important;
-  
-    background: #191015 !important;
-    border: 2px solid #F1B80B !important;
+
+  background: #191015 !important;
+  border: 2px solid #f1b80b !important;
 }
-.btn:hover{
-  background: #F1B80B !important;
+.btn:hover {
+  background: #f1b80b !important;
 }
 
 .footer {
@@ -92,7 +67,7 @@
   padding-top: 100px;
   padding-bottom: 50px;
   margin-bottom: auto;
-  font-family: "roboto";
+  font-family: "roboto", sans-serif;
 }
 
 .stak-button {
@@ -113,7 +88,7 @@
   }
   .text-center.nav-link {
     padding-left: 93px !important;
-}
+  }
   .d-flex {
     padding: 0px 0px;
   }
@@ -142,6 +117,12 @@
   a.text-center.nav-link {
     padding-left: 160px;
   }
+  .nav-text {
+    color: #fff;
+    font-family: roboto;
+    padding: 15px !important;
+    text-decoration: none;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -154,52 +135,68 @@
   a.text-center.nav-link {
     padding-left: 118px;
     font-size: 12px;
+  }
+  .logo1 {
+    display: block;
+    margin: auto;
+  }
 }
+@media screen and (max-width: 320px) {
+  .logo1 {
+    margin-left: 100px !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .logo1 {
+    margin-left: 100px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .logo1 {
+    margin-left: 130px;
+  }
 }
 
-a.nav-link.active{
-  color:white !important;
+a.nav-link.active {
+  color: white !important;
 }
-.nav-pills .nav-link{
-  color:white !important;
+.nav-pills .nav-link {
+  color: white !important;
 }
-.connect-wallet1{
+.connect-wallet1 {
   float: right;
 }
-@media screen and (max-width:750px) {
-  .connect-wallet1{
-    
-    text-align: center
+@media screen and (max-width: 750px) {
+  .connect-wallet1 {
+    text-align: center;
   }
-  .connect-wallet1{
-    float: none ;
+  .connect-wallet1 {
+    float: none;
   }
-  #connect1{
+  #connect1 {
     margin: 2rem auto !important;
     text-align: center;
   }
-
 }
-@media screen and (max-width: 820px){
-  .logo1{
+@media screen and (max-width: 820px) {
+  .logo1 {
     margin-top: -50px;
   }
 }
 
-.nav-text{
-  color:#fff;
-  font-family: roboto;
+.nav-text {
+  color: #fff;
+  font-family: "roboto", sans-serif;
   padding: 20px;
   text-decoration: none;
-
 }
-.active-border{
+.active-border {
   height: 40px;
 }
-.active{
+.active {
   height: 40px;
 }
-a{
+a {
   color: #fff !important;
 }
 .nav-item {

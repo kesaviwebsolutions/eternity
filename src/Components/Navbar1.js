@@ -4,16 +4,16 @@ import Logo from "../Components/Images/logo.png";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 // import logo1 from "../Components/Images/stake.png";
-import {BiLogIn} from "react-icons/bi"
+import { BiLogIn } from "react-icons/bi";
 
-export default function Navbar1({account, Dissconnect, Metamask}) {
+export default function Navbar1({ account, Dissconnect, Metamask }) {
   const [activeColor, setActiveColor] = useState(1);
 
   const slice = (address) => {
-    const first = address.slice(0, 4)
-    const second = address.slice(38)
-    return first + '...' + second
-  }
+    const first = address.slice(0, 4);
+    const second = address.slice(38);
+    return first + "..." + second;
+  };
 
   return (
     <section>
@@ -21,14 +21,14 @@ export default function Navbar1({account, Dissconnect, Metamask}) {
         <div className="row">
           <div className="col-lg-4 col-md-4 col-sm-12 col-12">
             <div className="image">
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="/">
                 <img src={Logo} alt="" className="logo1" />
               </a>
             </div>
           </div>
           <div className="col-lg-4 col-md-4 col-sm-12 col-12">
             <div className="nav-background">
-              <Nav variant="pills" >
+              <Nav variant="pills">
                 <div className="active-border">
                   <Nav.Item
                     className={`${activeColor === 1 ? "active" : ""}`}
@@ -88,16 +88,16 @@ export default function Navbar1({account, Dissconnect, Metamask}) {
                   color: "white",
                   fontFamily: "roboto",
                 }}
-                onClick={()=>{
-                  if(account){
+                onClick={() => {
+                  if (account) {
                     Dissconnect();
-                  }
-                  else{
+                  } else {
                     Metamask();
                   }
                 }}
               >
-                {account ? slice(account) : "Connect"}{" "}{account ? <BiLogIn size={20}/> : ""}
+                {account ? slice(account) : "Connect"}{" "}
+                {account ? <BiLogIn size={20} /> : ""}
               </button>
             </div>
           </div>

@@ -30,12 +30,18 @@ export default function Main1() {
                     style={{ float: "right", marginTop: "10px", width: "30px" }}
                   />
                 </div>
-                <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:"roboto"}}>
+                <div
+                  className="col-lg-8 col-md-8 col-sm-8 col-6"
+                  // style={{ fontFamily: "roboto" }}
+                >
                   <span style={{ color: "white", fontSize: "18px" }}>
                     $0.00
                   </span>
                   <br />
-                  <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                  <span
+                    className="span-pp"
+                    style={{ color: "#A39FA1", fontSize: "14px" }}
+                  >
                     Liquidity Cap
                   </span>
                 </div>
@@ -55,10 +61,21 @@ export default function Main1() {
                     style={{ float: "right", marginTop: "10px", width: "30px" }}
                   />
                 </div>
-                <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:"roboto"}}>
-                  <span style={{ color: "white", fontSize: "18px" }}>0</span>
+                <div
+                  className="col-lg-8 col-md-8 col-sm-8 col-6"
+                  style={{ fontFamily: "roboto" }}
+                >
+                  <span
+                    className="span-pp"
+                    style={{ color: "white", fontSize: "18px" }}
+                  >
+                    0
+                  </span>
                   <br />
-                  <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                  <span
+                    className="span-pp"
+                    style={{ color: "#A39FA1", fontSize: "14px" }}
+                  >
                     Rewards Claimed
                   </span>
                 </div>
@@ -78,10 +95,21 @@ export default function Main1() {
                     style={{ float: "right", marginTop: "10px", width: "30px" }}
                   />
                 </div>
-                <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:"roboto"}}>
-                  <span style={{ color: "white", fontSize: "18px" }}>0</span>
+                <div
+                  className="col-lg-8 col-md-8 col-sm-8 col-6"
+                  style={{ fontFamily: "roboto" }}
+                >
+                  <span
+                    className="span-pp"
+                    style={{ color: "white", fontSize: "18px" }}
+                  >
+                    0
+                  </span>
                   <br />
-                  <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                  <span
+                    className="span-pp"
+                    style={{ color: "#A39FA1", fontSize: "14px" }}
+                  >
                     Total Staked
                   </span>
                 </div>
@@ -98,10 +126,21 @@ export default function Main1() {
                     style={{ float: "right", marginTop: "10px", width: "30px" }}
                   />
                 </div>
-                <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:"roboto"}}>
-                  <span style={{ color: "white", fontSize: "18px" }}>0</span>
+                <div
+                  className="col-lg-8 col-md-8 col-sm-8 col-6"
+                  style={{ fontFamily: "roboto" }}
+                >
+                  <span
+                    className="span-pp"
+                    style={{ color: "white", fontSize: "18px" }}
+                  >
+                    0
+                  </span>
                   <br />
-                  <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                  <span
+                    className="span-pp"
+                    style={{ color: "#A39FA1", fontSize: "14px" }}
+                  >
                     Rewards Tokens
                   </span>
                 </div>
@@ -136,16 +175,19 @@ export default function Main1() {
                           style={{ float: "right", marginTop: "10px" }}
                         />
                       </div>
-                      <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:'roboto'}}>
-                        <span className="p" style={{ color: "white" }}>
+                      <div
+                        className="col-lg-8 col-md-8 col-sm-8 col-6"
+                        style={{ fontFamily: "roboto" }}
+                      >
+                        <span className="span-pp" style={{ color: "white" }}>
                           $0.00
                         </span>
                         <br />
                         <span
+                          className="span-pp"
                           style={{
                             color: "#A39FA1",
                             fontSize: "14px",
-                            // marginLeft: "2rem",
                           }}
                         >
                           Staked Balance
@@ -174,11 +216,12 @@ export default function Main1() {
                         </span>
                         <br />
                         <span
+                          className="span-pp"
                           style={{
                             color: "#A39FA1",
                             fontSize: "14px",
                             // marginLeft: "2rem",
-                            fontFamily:'roboto'
+                            // fontFamily: "roboto",
                           }}
                         >
                           Tokens Staked
@@ -201,12 +244,19 @@ export default function Main1() {
                           }}
                         />
                       </div>
-                      <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:"roboto"}}>
-                        <span style={{ color: "white", fontSize: "18px" }}>
+                      <div
+                        className="col-lg-8 col-md-8 col-sm-8 col-6"
+                        style={{ fontFamily: "roboto" }}
+                      >
+                        <span
+                          className="span-pp"
+                          style={{ color: "white", fontSize: "18px" }}
+                        >
                           $0.00
                         </span>
                         <br />
                         <span
+                          className="span-pp"
                           style={{
                             color: "#A39FA1",
                             fontSize: "14px",
@@ -233,12 +283,21 @@ export default function Main1() {
                           }}
                         />
                       </div>
-                      <div className="col-lg-8 col-md-8 col-sm-8 col-6" style={{fontFamily:"roboto"}}>
-                        <span style={{ color: "white", fontSize: "18px" }}>
+                      <div
+                        className="col-lg-8 col-md-8 col-sm-8 col-6"
+                        style={{ fontFamily: "roboto" }}
+                      >
+                        <span
+                          className="span-pp"
+                          style={{ color: "white", fontSize: "18px" }}
+                        >
                           0
                         </span>
                         <br />
-                        <span style={{ color: "#A39FA1", fontSize: "14px" }}>
+                        <span
+                          className="span-pp"
+                          style={{ color: "#A39FA1", fontSize: "14px" }}
+                        >
                           Free Tokens
                         </span>
                       </div>
@@ -247,7 +306,6 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
       </div>
@@ -266,16 +324,26 @@ export default function Main1() {
                     padding: "0.5rem",
                     margin: "0.01rem",
                     textAlign: "center",
-                    border: '2px solid #F1B80B',
+                    border: "2px solid #F1B80B",
                   }}
                 >
                   <span
-                    style={{ color: "rgb(163, 159, 161)", fontSize: "30px", fontFamily:'roboto' }}
+                    className="span-pp"
+                    style={{
+                      color: "rgb(163, 159, 161)",
+                      fontSize: "30px",
+                      fontFamily: "roboto",
+                    }}
                   >
                     7 Days
                   </span>
                   <br />
-                  <span style={{ color: "white" , fontFamily:'roboto'}}>150% APY</span>
+                  <span
+                    className="span-pp"
+                    style={{ color: "white", fontFamily: "roboto" }}
+                  >
+                    150% APY
+                  </span>
                 </div>
               </div>
             </div>
@@ -293,17 +361,24 @@ export default function Main1() {
                     padding: "0.5rem",
                     margin: "0.01rem",
                     textAlign: "center",
-                    border: '2px solid #F1B80B',
+                    border: "2px solid #F1B80B",
                   }}
                 >
                   <span
-                    style={{ color: "rgb(163, 159, 161)", fontSize: "30px" , fontFamily:'roboto'}}
+                    className="span-pp"
+                    style={{
+                      color: "rgb(163, 159, 161)",
+                      fontSize: "30px",
+                      fontFamily: "roboto",
+                    }}
                   >
                     30 Days
-
-                  </span><br/>
+                  </span>
                   <br />
-                  <span style={{ color: "white", fontFamily:'roboto' }}>300% APY</span>
+                  <br />
+                  <span className="span-pp" style={{ color: "white" }}>
+                    300% APY
+                  </span>
                 </div>
               </div>
             </div>
@@ -331,14 +406,54 @@ export default function Main1() {
             </div>
 
             <div className="col-lg-4 col-md-12 col-sm-12 col-12">
-              <button className="border-meta3" style={{width:"100%", background:'#191015', border:'none'}}>
+              <button
+                className="border-meta3"
+                style={{ width: "100%", background: "#191015", border: "none" }}
+              >
                 <div className="button-stake1">Stake "$ETRNTY Tokens"</div>
               </button>
             </div>
           </div>
         </div>
       </div>
-      
+      <div className="container" style={{ color: "white" }}>
+        <div className="stake-head">
+          <h2 className="heading-table">Your Balance : $ETRNTY</h2>
+        </div>
+        <div className="stake-head3">
+          <h3 className="heading-staking">Staking Details</h3>
+        </div>
+        <div className="summary-content">
+          <p className="p">Duration</p>
+          <p className="quotation">:</p>
+          <p className="sc">90 Days</p>
+        </div>
+        <div className="summary-content">
+          <p className="p">APY</p>
+          <p className="quotation1">:</p>
+          <p className="sc">50 % </p>
+        </div>
+        <div className="summary-content">
+          <p className="p">Staked Amount</p>
+          <p className="quotation2">:</p>
+          <p className="sc">$GENESIS</p>
+        </div>
+        <div className="summary-content">
+          <p className="p">Estimated Return</p>
+          <p className="quotation3">:</p>
+          <p className="sc">0 $GENESIS</p>
+        </div>
+        <div className="summary-content">
+          <p className="p">Start Date</p>
+          <p className="quotation4">:</p>
+          <p className="sc">9/24/2022, 1:37:17 PM</p>
+        </div>
+        <div className="summary-content">
+          <p className="p">End Date</p>
+          <p className="quotation">:</p>
+          <p className="sc">12/23/2022, 1:37:11 PM</p>
+        </div>
+      </div>
     </section>
   );
 }
