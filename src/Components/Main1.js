@@ -247,52 +247,7 @@ export default function Main1() {
                 </div>
               </div>
             </div>
-            {/* <div className="col-lg-4 col-md-12 col-sm-12 col-12 ">
-              <div className="border-meta">
-                <div
-                  className="row emm-bu"
-                  style={{
-                    marginRight: "1rem",
-                    background: "#191015",
-                    borderRadius: "10px",
-                    padding: "0.5rem",
-                    margin: "0.01rem",
-                    border: '2px solid #F1B80B',
-                  }}
-                >
-                  <div className="col-lg-8 col-md-8 col-sm-8 col-8 emer" style={{fontFamily:"roboto"}}>
-                    <div className="emergency-bu"
-                      style={{
-                        borderBottom: "0.1rem solid #2F272B",
-                        // width: "84%",
-                        paddingTop: "30px",
-                      }}
-                    >
-                      <button
-                        className="border-meta4"
-                        style={{ marginBottom: "24px",width:"100%", background:'#191015', border:'none' }}
-                      >
-                        <div className="button-stake01" >Emergency Withdraw</div>
-                      </button>
-                    </div>
-
-                    <div style={{ paddingTop: "10px" }}>
-                      <button className="border-meta3" style={{width:"100%", background:'#191015', border:'none'}}>
-                        <div className="button-stake02">Withdraw</div>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-4 col-sm-4 col-4 main-logo1">
-                    <img
-                      src={Mainlogo}
-                      alt=""
-                      className="Image11"
-                      
-                    />
-                  </div>
-                </div>
-              </div>
-            </div> */}
+           
           </div>
         </div>
       </div>
