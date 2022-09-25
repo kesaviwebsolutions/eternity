@@ -10,40 +10,47 @@ import Imagelogo6 from "../Components/Images/portfolio.png";
 import Imagelogo7 from "../Components/Images/rewardtokens.png";
 import Mainlogo from "../Components/Images/logo.png";
 import Nav from "react-bootstrap/Nav";
-import { StakeBalace, tokenBalance, totalstakedinContract, tokenpending, tokenDistribute, Stake } from "./../Web3/Wallets"
-import toast, { Toaster } from 'react-hot-toast'
+import {
+  StakeBalace,
+  tokenBalance,
+  totalstakedinContract,
+  tokenpending,
+  tokenDistribute,
+  Stake,
+} from "./../Web3/Wallets";
+import toast, { Toaster } from "react-hot-toast";
 
-
-const notify = (msg) => toast.success(msg)
-const warning = (msg) => toast.error(msg)
+const notify = (msg) => toast.success(msg);
+const warning = (msg) => toast.error(msg);
 
 const time = new Date().getTime();
 
-export default function Main1({account}) {
-  const [apy, setAPY] = useState()
-  const [duration, setDuration] = useState(0)
-  const [userstake, setUserState] = React.useState(0)
-  const [balance, setBalance] = React.useState(0)
+export default function Main1({ account }) {
+  const [apy, setAPY] = useState();
+  const [duration, setDuration] = useState(0);
+  const [userstake, setUserState] = React.useState(0);
+  const [balance, setBalance] = React.useState(0);
   const [stakeTotal, setStakeTotal] = useState(0);
-  const [pending, setPending] = useState(0)
-  const [disturbute, setDisturbute] = useState(0)
+  const [pending, setPending] = useState(0);
+  const [disturbute, setDisturbute] = useState(0);
   const [count, setCount] = useState(0);
+  const [active, setActive] = useState(0);
 
-  React.useEffect(()=>{
-    const init =async()=>{
+  React.useEffect(() => {
+    const init = async () => {
       const stake = await StakeBalace();
-      setUserState(stake)
+      setUserState(stake);
       const bal = await tokenBalance();
-      setBalance(bal)
+      setBalance(bal);
       const data = await totalstakedinContract();
       setStakeTotal(data);
       const pend = await tokenpending();
-      setPending(pend)
+      setPending(pend);
       const dis = await tokenDistribute();
-      setDisturbute(dis)
-    }
+      setDisturbute(dis);
+    };
     init();
-  },[account])
+  }, [account]);
 
   const StakeAmount = async () => {
     const data = await Stake(duration, count);
@@ -54,7 +61,7 @@ export default function Main1({account}) {
       const bal = await tokenBalance();
       setBalance(bal);
       const stake = await StakeBalace();
-      setUserState(stake)
+      setUserState(stake);
     }
   };
 
@@ -156,7 +163,7 @@ export default function Main1({account}) {
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                   Total Pendign Rewards
+                    Total Pendign Rewards
                   </span>
                 </div>
               </div>
@@ -358,29 +365,22 @@ export default function Main1({account}) {
       <div className="container">
         <h2 className="heading-2">Secure</h2>
         <div className="row ">
-          <div className=" col-lg-6 col-md-6 col-sm-12 col-12" onClick={()=>{
-            setDuration(7)
-            setAPY(150)
-          }}>
+          <div
+            className=" col-lg-6 col-md-6 col-sm-12 col-12"
+            onClick={() => {
+              setDuration(7);
+              setAPY(150);
+            }}
+          >
             <div className="border-meta2">
               <div className="total">
-                <div
-                  className=" card"
-                  style={{
-                    marginRight: "1rem",
-                    background: "#191015",
-                    borderRadius: "10px",
-                    padding: "0.5rem",
-                    margin: "0.01rem",
-                    textAlign: "center",
-                    border: "2px solid #F1B80B",
-                  }}
-                >
+              <div className={`card background ${active===1 ? "select" :"" }`} onClick={()=>setActive(1)}>
                   <span
                     className="span-pp"
                     style={{
                       color: "rgb(163, 159, 161)",
                       fontSize: "30px",
+                      paddingBottom: "24px",
                       fontFamily: "roboto",
                     }}
                   >
@@ -398,24 +398,16 @@ export default function Main1({account}) {
             </div>
           </div>
 
-          <div className=" col-lg-6 col-md-6 col-sm-12 col-12" onClick={()=>{
-            setDuration(30)
-            setAPY(300)
-          }}>
+          <div
+            className=" col-lg-6 col-md-6 col-sm-12 col-12"
+            onClick={() => {
+              setDuration(30);
+              setAPY(300);
+            }}
+          >
             <div className="border-meta2">
               <div className="total">
-                <div
-                  className=""
-                  style={{
-                    marginRight: "1rem",
-                    background: "#191015",
-                    borderRadius: "10px",
-                    padding: "0.5rem",
-                    margin: "0.01rem",
-                    textAlign: "center",
-                    border: "2px solid #F1B80B",
-                  }}
-                >
+                <div className={`card background ${active===2 ? "select" :"" }`} onClick={()=>setActive(2)}>
                   <span
                     className="span-pp"
                     style={{
@@ -446,17 +438,39 @@ export default function Main1({account}) {
                 type="number"
                 className="input-type"
                 value={count}
-                onChange={(e)=>setCount(e.target.value)}
+                onChange={(e) => setCount(e.target.value)}
                 placeholder="Amount to stake (min.1000)"
                 style={{ height: "4rem", width: "45rem" }}
               ></input>
             </div>
             <div className="col-lg-5 col-md-12 col-sm-12 col-12 input12">
-              <button className="input1"onClick={()=>setCount((balance*10)/100)}>10%</button>
-              <button className="input1"onClick={()=>setCount((balance*25)/100)}>25%</button>
-              <button className="input1"onClick={()=>setCount((balance*50)/100)}>50%</button>
-              <button className="input1"onClick={()=>setCount((balance*75)/100)}>75%</button>
-              <button className="input1 max" onClick={()=>setCount(balance)}>MAX</button>
+              <button
+                className="input1"
+                onClick={() => setCount((balance * 10) / 100)}
+              >
+                10%
+              </button>
+              <button
+                className="input1"
+                onClick={() => setCount((balance * 25) / 100)}
+              >
+                25%
+              </button>
+              <button
+                className="input1"
+                onClick={() => setCount((balance * 50) / 100)}
+              >
+                50%
+              </button>
+              <button
+                className="input1"
+                onClick={() => setCount((balance * 75) / 100)}
+              >
+                75%
+              </button>
+              <button className="input1 max" onClick={() => setCount(balance)}>
+                MAX
+              </button>
             </div>
 
             <div className="col-lg-4 col-md-12 col-sm-12 col-12">
@@ -464,7 +478,9 @@ export default function Main1({account}) {
                 className="border-meta3"
                 style={{ width: "100%", background: "#191015", border: "none" }}
               >
-                <div className="button-stake1" onClick={()=>StakeAmount()}>Stake "$ETRNTY Tokens"</div>
+                <div className="button-stake1" onClick={() => StakeAmount()}>
+                  Stake "$ETRNTY Tokens"
+                </div>
               </button>
             </div>
           </div>
@@ -495,13 +511,16 @@ export default function Main1({account}) {
         <div className="summary-content">
           <p className="p">Estimated Return</p>
           <p className="quotation3">:</p>
-          <p className="sc">{duration == 30
-                    ? `${count * 1.0292}`
-                    : duration == 90
-                    ? `${count * 1.1875}`
-                    : duration == 180
-                    ? `${count * 1.45}`
-                    : `${count * 2.3}`}{" "} ETRNTY</p>
+          <p className="sc">
+            {duration == 30
+              ? `${count * 1.0292}`
+              : duration == 90
+              ? `${count * 1.1875}`
+              : duration == 180
+              ? `${count * 1.45}`
+              : `${count * 2.3}`}{" "}
+            ETRNTY
+          </p>
         </div>
         <div className="summary-content">
           <p className="p">Start Date</p>
@@ -511,10 +530,12 @@ export default function Main1({account}) {
         <div className="summary-content">
           <p className="p">End Date</p>
           <p className="quotation">:</p>
-          <p className="sc">{new Date(time + duration * 86400000).toLocaleString()}</p>
+          <p className="sc">
+            {new Date(time + duration * 86400000).toLocaleString()}
+          </p>
         </div>
       </div>
-      <Toaster/>
+      <Toaster />
     </section>
   );
 }

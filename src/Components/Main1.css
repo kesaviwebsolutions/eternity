@@ -259,6 +259,18 @@ hr {
   font-family: grifter;
   background: linear-gradient(90deg, #f1b80b, #790252);
 }
+.card.background {
+  margin: 0.01rem;
+  background: rgb(25, 16, 21);
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.card.background.select {
+  border: 2px solid rgb(241, 184, 11);
+}
+
 @media screen and (max-width: 1000px) and (min-width: 600px) {
   .Image11 {
     /* width: 80% !important; */
