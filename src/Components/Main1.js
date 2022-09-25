@@ -490,7 +490,7 @@ export default function Main1({account}) {
         <div className="summary-content">
           <p className="p">Staked Amount</p>
           <p className="quotation2">:</p>
-          <p className="sc">{count}GENESIS</p>
+          <p className="sc">{count} ETRNTY</p>
         </div>
         <div className="summary-content">
           <p className="p">Estimated Return</p>
@@ -501,7 +501,7 @@ export default function Main1({account}) {
                     ? `${count * 1.1875}`
                     : duration == 180
                     ? `${count * 1.45}`
-                    : `${count * 2.3}`}{" "}GENESIS</p>
+                    : `${count * 2.3}`}{" "} ETRNTY</p>
         </div>
         <div className="summary-content">
           <p className="p">Start Date</p>
