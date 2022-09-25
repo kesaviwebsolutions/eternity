@@ -3,28 +3,9 @@ import WalletConnectProvider from '@walletconnect/web3-provider/dist/umd/index.m
 import { StakingABI, StakingAddress, TokenABI, TokenAddress } from './Credentials'
 
 let web3 = new Web3(window.ethereum)
-var provider = new WalletConnectProvider({
-  rpc: {
-    56: 'https://bsc-dataseed1.ninicoin.io',
-    97: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
-    1: 'https://mainnet.infura.io/v3/',
-    // ...
-  },
-  bridge: 'https://bridge.walletconnect.org',
-})
-
-export const WalletConnect = async () => {
-  try {
-    await provider.disconnect()
-    const data = await provider.enable()
-    web3 = new Web3(provider)
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 export const DissconnectWallet = async () => {
-  await provider.disconnect()
+  // await provider.disconnect()
   web3 = null
 }
 

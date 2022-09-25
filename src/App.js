@@ -30,12 +30,6 @@ function App() {
     init();
   }, [account]);
 
-  const WalletC = async () => {
-    await WalletConnect();
-    const add = await getUserAddress();
-    setAccount(add);
-    
-  };
 
   const Metamask = async () => {
     await MetaMasklogin();
