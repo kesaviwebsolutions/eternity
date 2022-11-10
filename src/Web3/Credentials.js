@@ -1,4 +1,4 @@
-export const StakingAddress = "0x21ef3122c35301F9Eff3c150640Dfe13709022Fc";
+export const StakingAddress = "0x001124C52C494f284b03d411642Cc5e844C58cB6";
 export const StakingABI = [
   {
     inputs: [

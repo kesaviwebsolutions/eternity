@@ -95,7 +95,7 @@ export default function Main1({ account }) {
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Tokon (USD)
+                    Total Token (USD)
                   </span>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function Main1({ account }) {
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Token Stake
+                    Total Token Staked
                   </span>
                 </div>
               </div>
@@ -163,7 +163,7 @@ export default function Main1({ account }) {
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Pendign Rewards
+                    Total Pending Rewards
                   </span>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function Main1({ account }) {
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Rewards Distribute
+                    Total Rewards Distributed
                   </span>
                 </div>
               </div>
