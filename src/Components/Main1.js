@@ -17,7 +17,9 @@ import {
   tokenpending,
   tokenDistribute,
   Stake,
+  Contracttokenbalace
 } from "./../Web3/Wallets";
+import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const notify = (msg) => toast.success(msg);
@@ -25,7 +27,7 @@ const warning = (msg) => toast.error(msg);
 
 const time = new Date().getTime();
 
-export default function Main1({ account }) {
+export default function Main1({ account, price }) {
   const [apy, setAPY] = useState();
   const [duration, setDuration] = useState(0);
   const [userstake, setUserState] = React.useState(0);
@@ -35,7 +37,11 @@ export default function Main1({ account }) {
   const [disturbute, setDisturbute] = useState(0);
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(0);
+  const [tokenlivepri, setTokenlivepri] = useState(0)
+  const [contrac, setContract] = useState()
+  
 
+  console.log(price)
   React.useEffect(() => {
     const init = async () => {
       const stake = await StakeBalace();
@@ -48,8 +54,19 @@ export default function Main1({ account }) {
       setPending(pend);
       const dis = await tokenDistribute();
       setDisturbute(dis);
+      const contbal = await Contracttokenbalace()
+      setContract(contbal)
     };
     init();
+
+    setInterval(async()=>{
+      const data = await totalstakedinContract();
+      setStakeTotal(data);
+      const pend = await tokenpending();
+      setPending(pend);
+      const dis = await tokenDistribute();
+      setDisturbute(dis);
+    },10000)
   }, [account]);
 
   const StakeAmount = async () => {
@@ -64,6 +81,17 @@ export default function Main1({ account }) {
       setUserState(stake);
     }
   };
+
+  useEffect(()=>{
+
+    setInterval(()=>{
+     axios.get('https://api.pancakeswap.info/api/v2/tokens/0x475D9dCd1f6c6E015A499F9BF675FCFCc9C1349E').then((res)=>{
+      
+       setTokenlivepri(res.data.data.price*10**18)
+     }).catch(console.error)
+    },5000)
+ 
+   },[])
 
   return (
     <section>
@@ -88,14 +116,14 @@ export default function Main1({ account }) {
                   // style={{ fontFamily: "roboto" }}
                 >
                   <span style={{ color: "white", fontSize: "18px" }}>
-                    ${stakeTotal}
+                    ${Number(contrac * tokenlivepri).toFixed(3)}
                   </span>
                   <br />
                   <span
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Token (USD)
+                    Total Value Locked(USD)
                   </span>
                 </div>
               </div>
@@ -122,7 +150,7 @@ export default function Main1({ account }) {
                     className="span-pp"
                     style={{ color: "white", fontSize: "18px" }}
                   >
-                    {stakeTotal}
+                    {Number(stakeTotal).toFixed(3)}
                   </span>
                   <br />
                   <span
@@ -187,7 +215,7 @@ export default function Main1({ account }) {
                     className="span-pp"
                     style={{ color: "white", fontSize: "18px" }}
                   >
-                    {disturbute}
+                    {Number(disturbute).toFixed(2)}
                   </span>
                   <br />
                   <span
@@ -233,7 +261,7 @@ export default function Main1({ account }) {
                         style={{ fontFamily: "roboto" }}
                       >
                         <span className="span-pp" style={{ color: "white" }}>
-                          ${userstake}
+                          ${Number(userstake * tokenlivepri).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -265,7 +293,7 @@ export default function Main1({ account }) {
                       </div>
                       <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          {userstake}
+                          {Number(userstake).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -305,7 +333,7 @@ export default function Main1({ account }) {
                           className="span-pp"
                           style={{ color: "white", fontSize: "18px" }}
                         >
-                          ${balance}
+                          ${Number((balance + userstake)  * tokenlivepri).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -344,7 +372,7 @@ export default function Main1({ account }) {
                           className="span-pp"
                           style={{ color: "white", fontSize: "18px" }}
                         >
-                          {balance}
+                          {Number(balance).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -488,7 +516,7 @@ export default function Main1({ account }) {
       </div>
       <div className="container" style={{ color: "white" }}>
         <div className="stake-head">
-          <h2 className="heading-table">Your Balance : $ETRNTY</h2>
+          <h2 className="heading-table">Your Balance :{Number(balance).toFixed(3)} $ETRNTY</h2>
         </div>
         <div className="stake-head3">
           <h3 className="heading-staking">Staking Details</h3>

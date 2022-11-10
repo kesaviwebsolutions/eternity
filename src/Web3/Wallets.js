@@ -4,8 +4,28 @@ import { StakingABI, StakingAddress, TokenABI, TokenAddress } from './Credential
 
 let web3 = new Web3(window.ethereum)
 
+const provider = new WalletConnectProvider({
+  infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
+  rpc: {
+        56: 'https://bsc-dataseed1.ninicoin.io',
+        97: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+        1: 'https://mainnet.infura.io/v3/',
+        // ...
+      },
+});
+
+export const WalletConnectlogin = async () => {
+  try {
+    const data = await provider.enable();
+    web3 = new Web3(provider)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 export const DissconnectWallet = async () => {
-  // await provider.disconnect()
+  await provider.disconnect()
   web3 = null
 }
 
@@ -107,6 +127,16 @@ export const tokenBalance = async()=>{
   try {
     const contract = new web3.eth.Contract(TokenABI, TokenAddress);
     const data = await contract.methods.balanceOf(await getUserAddress()).call();
+    return data/10**18;
+  } catch (error) {
+    
+  }
+}
+
+export const Contracttokenbalace = async()=>{
+  try {
+    const contract = new web3.eth.Contract(TokenABI, TokenAddress);
+    const data = await contract.methods.balanceOf(StakingAddress).call();
     return data/10**18;
   } catch (error) {
     

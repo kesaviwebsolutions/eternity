@@ -15,7 +15,7 @@ import Imagelogo6 from "../Components/Images/portfolio.png";
 import Imagelogo7 from "../Components/Images/rewardtokens.png";
 import { StakeBalace, tokenBalance, getDetails, unstake, emergencyaction } from "./../Web3/Wallets"
 import toast, { Toaster } from 'react-hot-toast'
-
+import axios from "axios";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -85,6 +85,7 @@ export default function Activestake({account}) {
   const [userstake, setUserState] = React.useState(0)
   const [balance, setBalance] = React.useState(0)
   const [stakeEvents, setStakeEvents] = React.useState()
+  const [tokenlivepri, setTokenlivepri] = React.useState(1)
   
 
   React.useEffect(()=>{
@@ -146,7 +147,16 @@ const upcommingDate=(time)=>{
       setBalance(bal)
     }
   }
+  React.useEffect(()=>{
 
+    setInterval(()=>{
+     axios.get('https://api.pancakeswap.info/api/v2/tokens/0x475D9dCd1f6c6E015A499F9BF675FCFCc9C1349E').then((res)=>{
+      
+       setTokenlivepri(res.data.data.price*10**18)
+     }).catch(console.error)
+    },5000)
+ 
+   },[])
   return (
     <>
       <div className="container my-5">
@@ -180,7 +190,7 @@ const upcommingDate=(time)=>{
                         style={{ fontFamily: "roboto" }}
                       >
                         <span className="p" style={{ color: "white" }}>
-                          ${userstake}
+                          ${Number(userstake * tokenlivepri).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -212,7 +222,7 @@ const upcommingDate=(time)=>{
                       </div>
                       <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          {userstake}
+                        {Number(userstake).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -248,7 +258,7 @@ const upcommingDate=(time)=>{
                         style={{ fontFamily: "roboto" }}
                       >
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          ${balance}
+                          ${Number((balance + userstake)  * tokenlivepri).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -283,7 +293,7 @@ const upcommingDate=(time)=>{
                         style={{ fontFamily: "roboto" }}
                       >
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          {balance}
+                          {Number(balance).toFixed(2)}
                         </span>
                         <br />
                         <span style={{ color: "#A39FA1", fontSize: "14px" }}>
