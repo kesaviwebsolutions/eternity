@@ -540,13 +540,9 @@ export default function Main1({ account, price }) {
           <p className="p">Estimated Return</p>
           <p className="quotation3">:</p>
           <p className="sc">
-            {duration == 30
-              ? `${count * 1.0292}`
-              : duration == 90
-              ? `${count * 1.1875}`
-              : duration == 180
-              ? `${count * 1.45}`
-              : `${count * 2.3}`}{" "}
+            {duration == 7
+              ? `${(count * 1.028767123287671).toFixed(2)}`
+              : `${(count * 1.246575342465753).toFixed(2)}`}{" "}
             ETRNTY
           </p>
         </div>
