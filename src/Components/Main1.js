@@ -123,7 +123,7 @@ export default function Main1({ account, price }) {
                     className="span-pp"
                     style={{ color: "#A39FA1", fontSize: "14px" }}
                   >
-                    Total Value Locked(USD)
+                    Total Value Locked ($)
                   </span>
                 </div>
               </div>
@@ -271,7 +271,7 @@ export default function Main1({ account, price }) {
                             fontSize: "14px",
                           }}
                         >
-                          Staked Balance(USD)
+                          Staked Value ($)
                         </span>
                         <hr style={{ color: "white" }} />
                       </div>
