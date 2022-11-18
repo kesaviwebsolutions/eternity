@@ -59,7 +59,14 @@
 .btn:hover {
   background: #f1b80b !important;
 }
-
+button.buttoncennter.btn.btn-primary {
+  color: #fff;
+  background-color: #191015 !important;
+  margin-left: -40px;
+}
+button.buttoncennter.btn.btn-primary:hover {
+  background: #f1b80b !important;
+}
 .footer {
   color: #fff;
   font-size: 16px;
