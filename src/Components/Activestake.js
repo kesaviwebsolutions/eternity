@@ -19,11 +19,13 @@ import {
   getDetails,
   unstake,
   emergencyaction,
+  totakRewardEarned
 } from "./../Web3/Wallets";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Button } from "react-bootstrap";
 
 const notify = (msg) => toast.success(msg);
 const warning = (msg) => toast.error(msg);
@@ -58,13 +60,13 @@ const columns = [
     align: "left",
     format: (value) => value.toFixed(2),
   },
-  {
-    id: "density",
-    label: "Claim reward",
-    minWidth: 170,
-    align: "left",
-    format: (value) => value.toFixed(2),
-  },
+  // {
+  //   id: "density",
+  //   label: "Claim reward",
+  //   minWidth: 170,
+  //   align: "left",
+  //   format: (value) => value.toFixed(2),
+  // },
   {
     id: "density",
     label: "Action",
@@ -88,6 +90,7 @@ export default function Activestake({ account }) {
   const [balance, setBalance] = React.useState(0);
   const [stakeEvents, setStakeEvents] = React.useState();
   const [tokenlivepri, setTokenlivepri] = React.useState(1);
+  const [totalRewardEarned, setTotalRewardEarned] = React.useState(0)
 
   React.useEffect(() => {
     const init = async () => {
@@ -98,6 +101,10 @@ export default function Activestake({ account }) {
       const events = await getDetails();
       console.log("Staking Details", events);
       setStakeEvents(events);
+
+      const rewardeared = await totakRewardEarned()
+      setTotalRewardEarned(rewardeared)
+
     };
     init();
   }, [account]);
@@ -304,11 +311,11 @@ export default function Activestake({ account }) {
                         style={{ fontFamily: "roboto" }}
                       >
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          {Number(balance).toFixed(2)}
+                          {Number(totalRewardEarned).toFixed(2)}
                         </span>
                         <br />
                         <span style={{ color: "#A39FA1", fontSize: "14px" }}>
-                          Tokens Balance
+                          Total reward earned
                         </span>
                       </div>
                     </div>
@@ -389,31 +396,31 @@ export default function Activestake({ account }) {
                             {row.lockupDuration}
                           </Typography>
                         </TableCell>
-                        <TableCell>
+                        {/* <TableCell>
                           {" "}
                           <Typography color="whitesmoke">
                             {(Number(row.claimedReward)/10**18).toFixed(4)}
                           </Typography>
-                        </TableCell>
+                        </TableCell> */}
                         <TableCell>
                           {!row.claimed ? (
                             <Typography color="whitesmoke">
                               {Number(row.endtime) < new Date().getTime() / 1000 ? (
-                                <Typography
-                                  color="whitesmoke"
+                                <Button
+                                  color=""
                                   onClick={() => {
                                     unStakeAmount(row.id);
                                   }}
                                 >
                                   UNSTAKE
-                                </Typography>
+                                </Button>
                               ) : (
-                                <Typography
-                                  color="whitesmoke"
+                                <Button
+                                  color=""
                                   onClick={() => EmergencyUnstake(row.id)}
                                 >
                                   Emergency Withdraw
-                                </Typography>
+                                </Button>
                               )}
                             </Typography>
                           ) : (
