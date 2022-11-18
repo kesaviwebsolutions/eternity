@@ -176,6 +176,7 @@ export const getDetails = async()=>{
   const events = []
   const contract = new web3.eth.Contract(StakingABI, StakingAddress);
   const ids = await orderID();
+  console.log("ORder id ", ids)
   console.log("ID array",ids)
   for(let i = 0; i < ids.length; i++){
     const id = ids[i]
