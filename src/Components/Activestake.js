@@ -19,7 +19,7 @@ import {
   getDetails,
   unstake,
   emergencyaction,
-  totakRewardEarned
+  totakRewardEarned,
 } from "./../Web3/Wallets";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
@@ -90,7 +90,7 @@ export default function Activestake({ account }) {
   const [balance, setBalance] = React.useState(0);
   const [stakeEvents, setStakeEvents] = React.useState();
   const [tokenlivepri, setTokenlivepri] = React.useState(1);
-  const [totalRewardEarned, setTotalRewardEarned] = React.useState(0)
+  const [totalRewardEarned, setTotalRewardEarned] = React.useState(0);
 
   React.useEffect(() => {
     const init = async () => {
@@ -102,9 +102,8 @@ export default function Activestake({ account }) {
       console.log("Staking Details", events);
       setStakeEvents(events);
 
-      const rewardeared = await totakRewardEarned()
-      setTotalRewardEarned(rewardeared)
-
+      const rewardeared = await totakRewardEarned();
+      setTotalRewardEarned(rewardeared);
     };
     init();
   }, [account]);
@@ -405,18 +404,20 @@ export default function Activestake({ account }) {
                         <TableCell>
                           {!row.claimed ? (
                             <Typography color="whitesmoke">
-                              {Number(row.endtime) < new Date().getTime() / 1000 ? (
+                              {Number(row.endtime) <
+                              new Date().getTime() / 1000 ? (
                                 <Button
-                                  color=""
+                                  align="center"
+                                  className="buttoncennter"
                                   onClick={() => {
                                     unStakeAmount(row.id);
                                   }}
                                 >
-                                  UNSTAKE
+                                  WITHDRAW
                                 </Button>
                               ) : (
                                 <Button
-                                  color=""
+                                  className="buttoncennter"
                                   onClick={() => EmergencyUnstake(row.id)}
                                 >
                                   Emergency Withdraw
