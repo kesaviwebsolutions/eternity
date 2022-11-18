@@ -7,21 +7,26 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { Container} from "@mui/system";
-import Typography from '@mui/material/Typography';
+import { Container } from "@mui/system";
+import Typography from "@mui/material/Typography";
 import Imagelogo5 from "../Components/Images/stakebalance.png";
 import Imagelogo4 from "../Components/Images/tokenstake.png";
 import Imagelogo6 from "../Components/Images/portfolio.png";
 import Imagelogo7 from "../Components/Images/rewardtokens.png";
-import { StakeBalace, tokenBalance, getDetails, unstake, emergencyaction } from "./../Web3/Wallets"
-import toast, { Toaster } from 'react-hot-toast'
+import {
+  StakeBalace,
+  tokenBalance,
+  getDetails,
+  unstake,
+  emergencyaction,
+} from "./../Web3/Wallets";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-
-const notify = (msg) => toast.success(msg)
-const warning = (msg) => toast.error(msg)
+const notify = (msg) => toast.success(msg);
+const warning = (msg) => toast.error(msg);
 
 const columns = [
   { id: "name", label: "SNO.", minWidth: 170, align: "left" },
@@ -74,89 +79,92 @@ function createData(name, code, population, size) {
   return { name, code, population, size, density };
 }
 
-const rows = [
-  createData("1", 23423234, 23423234, 1324171354, 3287263),
- 
-];
+const rows = [createData("1", 23423234, 23423234, 1324171354, 3287263)];
 
-export default function Activestake({account}) {
+export default function Activestake({ account }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [userstake, setUserState] = React.useState(0)
-  const [balance, setBalance] = React.useState(0)
-  const [stakeEvents, setStakeEvents] = React.useState()
-  const [tokenlivepri, setTokenlivepri] = React.useState(1)
-  
+  const [userstake, setUserState] = React.useState(0);
+  const [balance, setBalance] = React.useState(0);
+  const [stakeEvents, setStakeEvents] = React.useState();
+  const [tokenlivepri, setTokenlivepri] = React.useState(1);
 
-  React.useEffect(()=>{
-    const init =async()=>{
+  React.useEffect(() => {
+    const init = async () => {
       const stake = await StakeBalace();
-      setUserState(stake)
+      setUserState(stake);
       const bal = await tokenBalance();
-      setBalance(bal)
-      const events = await getDetails()
-      setStakeEvents(events)
-      
-    }
+      setBalance(bal);
+      const events = await getDetails();
+      console.log("Staking Details", events);
+      setStakeEvents(events);
+    };
     init();
-  },[account])
+  }, [account]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
-const upcommingDate=(time)=>{
-    var current = Math.round(new Date().getTime()/1000);
-    var seconds =  time-current 
-    if(seconds > 0){
-      const days = Math.floor(seconds/86400)
+  const upcommingDate = (time) => {
+    var current = Math.round(new Date().getTime() / 1000);
+    var seconds = time - current;
+    if (seconds > 0) {
+      const days = Math.floor(seconds / 86400);
       const hour = Math.floor(seconds / 3600) % 24;
       const min = Math.floor(seconds / 60) % 60;
       const sec = seconds % 60;
       // return days+"D :"+hour+"H :"+min+"M :"+sec+"S"
-      return days+"D " + hour + "H"
+      return days + "D " + hour + "H";
+    } else {
+      return "UNSTAKE";
     }
-    else{
-      return "UNSTAKE"
-    }
-  } 
+  };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
-  const EmergencyUnstake =async(id)=>{
+  const EmergencyUnstake = async (id) => {
     const data = await emergencyaction(id);
-    if(data.status){
-      notify('Unstake Successfully')
+    if (data.status) {
+      notify("Unstake Successfully");
       const stake = await StakeBalace();
-      setUserState(stake)
+      setUserState(stake);
       const bal = await tokenBalance();
-      setBalance(bal)
+      setBalance(bal);
+      const events = await getDetails();
+      console.log("Staking Details", events);
+      setStakeEvents(events);
     }
-  }
+  };
 
   const unStakeAmount = async (id) => {
-    const data = await unstake(id)
+    const data = await unstake(id);
     if (data.status) {
-      notify('Staked Successfully')
+      notify("Staked Successfully");
       const stake = await StakeBalace();
-      setUserState(stake)
+      setUserState(stake);
       const bal = await tokenBalance();
-      setBalance(bal)
+      setBalance(bal);
+      const events = await getDetails();
+      console.log("Staking Details", events);
+      setStakeEvents(events);
     }
-  }
-  React.useEffect(()=>{
-
-    setInterval(()=>{
-     axios.get('https://api.pancakeswap.info/api/v2/tokens/0x475D9dCd1f6c6E015A499F9BF675FCFCc9C1349E').then((res)=>{
-      
-       setTokenlivepri(res.data.data.price*10**18)
-     }).catch(console.error)
-    },5000)
- 
-   },[])
+  };
+  React.useEffect(() => {
+    setInterval(() => {
+      axios
+        .get(
+          "https://api.pancakeswap.info/api/v2/tokens/0x475D9dCd1f6c6E015A499F9BF675FCFCc9C1349E"
+        )
+        .then((res) => {
+          setTokenlivepri(res.data.data.price * 10 ** 18);
+        })
+        .catch(console.error);
+    }, 5000);
+  }, []);
   return (
     <>
       <div className="container my-5">
@@ -222,7 +230,7 @@ const upcommingDate=(time)=>{
                       </div>
                       <div className="col-lg-8 col-md-8 col-sm-8 col-6">
                         <span style={{ color: "white", fontSize: "18px" }}>
-                        {Number(userstake).toFixed(3)}
+                          {Number(userstake).toFixed(3)}
                         </span>
                         <br />
                         <span
@@ -258,7 +266,10 @@ const upcommingDate=(time)=>{
                         style={{ fontFamily: "roboto" }}
                       >
                         <span style={{ color: "white", fontSize: "18px" }}>
-                          ${Number((balance + userstake)  * tokenlivepri).toFixed(3)}
+                          $
+                          {Number((balance + userstake) * tokenlivepri).toFixed(
+                            3
+                          )}
                         </span>
                         <br />
                         <span
@@ -319,41 +330,108 @@ const upcommingDate=(time)=>{
               borderRadius: "10px",
             }}
           >
-            {stakeEvents ? <Table stickyHeader aria-label="sticky table">
-              <TableHead>
-                <TableRow>
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align}
-                      style={{ minWidth: column.minWidth }}
-                      sx={{ background: "#191015", color: "white" }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {stakeEvents.map((row) => {
-                  return (
-                    <TableRow hover role="checkbox"  tabIndex={-1} key={row[0]} >
-                      <TableCell> <Typography color="whitesmoke">{stakeEvents.indexOf(row) + 1}</Typography></TableCell>
-                      <TableCell> <Typography color="whitesmoke">{row.amount/10**18}</Typography></TableCell>
-                      <TableCell> <Typography color="whitesmoke">{new Date(Number(row.starttime)*1000).toLocaleDateString()}</Typography></TableCell>
-                      <TableCell> <Typography color="whitesmoke">{new Date(Number(row.endtime)*1000).toLocaleDateString()}</Typography></TableCell>
-                      <TableCell> <Typography color="whitesmoke">{row.lockupDuration}</Typography></TableCell>
-                      <TableCell> <Typography color="whitesmoke">{row.claimedReward}</Typography></TableCell>
-                      <TableCell>{!row.claimed ? <Typography color="whitesmoke">{ row.endtime < new Date().getTime/1000 ? <Typography color="whitesmoke" onClick={()=>{unStakeAmount(row.id)}}>UNSTAKE</Typography> : <Typography color="whitesmoke" onClick={()=>EmergencyUnstake(row.id)}>Emergency Withdraw</Typography>}</Typography>:<Typography color="whitesmoke">CLAIMED</Typography>}</TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table> : <Skeleton count={10} height='40' width='100'/>}
+            {stakeEvents ? (
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth }}
+                        sx={{ background: "#191015", color: "white" }}
+                      >
+                        {column.label}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {stakeEvents.map((row) => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row[0]}
+                      >
+                        <TableCell>
+                          {" "}
+                          <Typography color="whitesmoke">
+                            {stakeEvents.indexOf(row) + 1}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          {" "}
+                          <Typography color="whitesmoke">
+                            {row.amount / 10 ** 18}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          {" "}
+                          <Typography color="whitesmoke">
+                            {new Date(
+                              Number(row.starttime) * 1000
+                            ).toLocaleDateString()}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          {" "}
+                          <Typography color="whitesmoke">
+                            {new Date(
+                              Number(row.endtime) * 1000
+                            ).toLocaleDateString()}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          {" "}
+                          <Typography color="whitesmoke">
+                            {row.lockupDuration}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          {" "}
+                          <Typography color="whitesmoke">
+                            {(Number(row.claimedReward)/10**18).toFixed(4)}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          {!row.claimed ? (
+                            <Typography color="whitesmoke">
+                              {Number(row.endtime) < new Date().getTime() / 1000 ? (
+                                <Typography
+                                  color="whitesmoke"
+                                  onClick={() => {
+                                    unStakeAmount(row.id);
+                                  }}
+                                >
+                                  UNSTAKE
+                                </Typography>
+                              ) : (
+                                <Typography
+                                  color="whitesmoke"
+                                  onClick={() => EmergencyUnstake(row.id)}
+                                >
+                                  Emergency Withdraw
+                                </Typography>
+                              )}
+                            </Typography>
+                          ) : (
+                            <Typography color="whitesmoke">CLAIMED</Typography>
+                          )}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            ) : (
+              <Skeleton count={10} height="40" width="100" />
+            )}
           </TableContainer>
         </Container>
       </Paper>
-      <Toaster/>
+      <Toaster />
     </>
   );
 }
